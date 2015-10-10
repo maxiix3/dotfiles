@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+sleep_period=10s 
+
+STATUS=`xset -q | grep "Monitor is" | awk '{print $3}'`
+
+if [ "${STATUS}" = "off" ]
+then
+   sendkeys Shift_L
+fi
+exit 0

@@ -1,0 +1,82 @@
+\documentclass[12pt,a4paper,norsk]{article}
+\usepackage[T1]{fontenc,url}
+\usepackage[utf8]{inputenc}
+\usepackage{babel,textcomp,mathpazo,graphicx}
+\usepackage{verbatim, fancyvrb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{color}
+\usepackage{setspace}
+\usepackage{listings}
+
+\begin{document}
+
+\title{Obligatorisk oppgave 5 \\ Prosjektoppgave del 1 av 3}
+\author{Maximiliano Horta}
+
+\maketitle
+
+\newpage
+
+\section*{Innledning}
+I denne delen her har jeg valgt å basere meg på en barneskole. Databasen skal ta
+inn informasjon om hver enkelt elev og vite ting som allergier og
+kontaktpersoner. 
+
+\subsection*{Begreper}
+   Elever
+\\ mor
+\\ far
+\\ klasse
+\\ kontaktlærer
+\\ kjønn
+\\ morsmål
+\\ SFO
+\\ medier samtykking
+\\ søsken
+\\ trinn
+\\ pårørende
+\\ allergi 
+
+\subsection*{Relasjoner}
+   En elev har en mor
+\\ en elev har en far
+\\ en elev har et morsmål
+\\ en elev går i en klasse
+\\ en elev går i et trinn
+\\ en klasse har kontaktlærer
+\\ en klasse har et klasserom
+\\ en elev kan gå på SFO
+\\ En forelder kan gi eleven samtykke til å bli publisert i medier
+\\ En elev kan ha søsken som også går på skolen
+\\ elev har pårørende
+\\ elev har allergi
+\\ en kontaktlærer har et navn, alder og kjønn
+\\ elev har navn, alder, personnr adresse, kjønn, klasse, kontaktlærer, mor og far
+\\ foreldre har navn, tlf og adresse, personnr
+\\ en elev kan ha andre søsken på skolen
+
+\subsection*{Setningstyper}
+   en elev kan ha flere kontaktlærere
+\\ en elev går i 1 klasse
+\\ flere elever går i en klasse
+\\ flere elever (søsken) kan ha flere pårørende
+\\ en elev har et unikt personnummer
+\\ en elev kan ha allergi, flere elever kan ha samme allergi.
+
+\subsection*{naturlige spørsmål}
+   * Hvilke elever har allergier i klasse 3b?
+\\ * Hvilke elever går på SFO?
+\\ * hvilke foreldre har forskjellige adresser(skilt)?
+\\ * hvor mange jenter går det i 3.trinn?
+\\ * hvor mange har Lise som kontaktlærer?
+\\ * hvem på skolen er søsken?
+\\ * hvilke elever har andre pårørende enn foreldrene?
+\\ * hvilke elever har ikke norsk som morsmål?
+\\ * hvem i 4 trinn går på SFO?
+\\ * hvilke elever har fått samtykke om publisering i medier?
+\\ * hvilke elever har en far som heter Hans?
+
+\end{document}
+

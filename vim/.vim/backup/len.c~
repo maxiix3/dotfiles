@@ -1,0 +1,18 @@
+/* metode for å gå gjennom hver linje og hvert tegn og teller opp antallet.
+ */
+int len_file(struct Node* n){
+
+    int k;
+    int lenght=0;
+    struct Node* tmp;
+    tmp = n;
+    tmp=tmp->next;
+    while (tmp != NULL){
+        for(k=0; tmp->line[k] != 0; k++){
+            lenght++;
+        }
+        tmp = tmp->next;
+    }
+    printf("the text is %d characters long \n", lenght);
+    return 0;
+}

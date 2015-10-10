@@ -1,0 +1,18 @@
+from math import exp
+
+a = 5
+b = 22
+dx = (b - a)/float(n)
+
+f = lambda x : exp(-x**2)
+print map(f : [i*dx for i in range(n + 1)]
+
+
+        # next
+import numpy as np
+x = np.zeros
+y = np.zeros_like(y)
+
+exp = np.exp
+f = lambda x : exp(-x**2)
+print f(x)

@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <unistd.h>
+
+// lager en struct som skal kunne peke rundt på neste linje
+struct Node{
+    char line[100];
+    struct Node* next;
+};
+
+// deklarerer alle metodene
+int print_fi(struct Node* n);
+int print_opt();
+int random_line(struct Node* n);
+int check(char c);
+int replace_vowel(struct Node* n);
+int remove_vowel(struct Node* n);
+int len_file(struct Node* n);
+int insert_line();
+
+

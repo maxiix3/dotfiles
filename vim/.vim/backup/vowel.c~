@@ -1,0 +1,80 @@
+#include "header.h"
+char vowel[] = {'a','e','i','o','u','y'};
+
+/* Her ligger alle programmene som har noe med vokalene å gjøre:
+ * replace
+ * remove
+ * check (brukes til å sjekke om det er en vokal
+ * 
+ *
+ * metode for å erstatte vokaler. bruker sjekk og erstatter vokalen i en fin
+ * løkke. blir også laget en ny char array som skal holde på den nye teksten.
+ */
+int replace_vowel(struct Node* n){
+    int i;
+    int k;
+    char newline[250];
+    for (i = 0; i < 6; i++){
+        struct Node* tmp;
+        tmp = n;
+        tmp=tmp->next;
+        printf("replace vowels with %c \n", vowel[i]);
+        while (tmp != NULL){
+            for(k=0; tmp->line[k] != 0; k++){
+                if(check(tmp->line[k])){
+                    newline[k] = vowel[i];
+                }else{
+                    newline[k] = tmp->line[k];
+                } 
+            }
+            newline[k] = 0;
+            tmp = tmp->next;
+            printf("  %s", newline);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+/* metode som bruker check for å fjerne alle vokalene. Usikker på hvorfor det 
+ * ikke dukket opp ekstra space, da jeg hadde tenkt å erstatte vokalen med space
+ * for å så strippe alle space som gjentar seg. Dette fungerer, men litt usikker 
+ * på hvorfor den fungerer slik jeg ønsket.
+ */
+int remove_vowel(struct Node* n){
+
+    int k;
+    char newline[250];
+    struct Node* tmp;
+    tmp = n;
+    tmp=tmp->next;
+    printf("delete all vowels \n");
+    while (tmp != NULL){
+        for(k=0; tmp->line[k] != 0; k++){
+            if(check(tmp->line[k])){
+                newline[k] = '\32';
+            }else{
+                newline[k] = tmp->line[k];
+            } 
+        }
+        newline[k] = 0;
+        tmp = tmp->next;
+        printf("  %s", newline);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+// laget en sjekk metode som iterer gjennom vokalene og gir ut om det er en vokal
+int check(char c){
+    int i = 0;
+    while (i < 6){
+        if(c == vowel[i]){
+            return 1;
+        }
+        i++;
+    }
+    return 0;
+}
