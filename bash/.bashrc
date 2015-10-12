@@ -5,6 +5,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+TERM=xterm-256color
+
 alias ls='ls -l --color=auto'
 alias logisim='java -jar ~/Documents/logisim-generic-2.7.1.jar &'
 alias sshuio='ssh -YC maximinh@vor.ifi.uio.no'
