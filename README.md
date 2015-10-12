@@ -6,9 +6,9 @@ This is my dotfiles from my archsetup, my first linux setup started november 201
 Dependencies
 ------------
 
-i3
-i3blocks
-(i3pystatus)
-ranger
-URxvt
-vim
+i3  
+i3blocks  
+(i3pystatus)  
+ranger  
+URxvt  
+vim  
