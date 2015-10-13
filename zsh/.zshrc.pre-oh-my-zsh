@@ -1,0 +1,19 @@
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' expand prefix suffix
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' '+m:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+' 'l:|=* r:|=*'
+zstyle ':completion:*' squeeze-slashes true
+zstyle :compinstall filename '/home/max/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=300
+SAVEHIST=100
+setopt appendhistory autocd beep nomatch
+bindkey -v
+# End of lines configured by zsh-newuser-install
