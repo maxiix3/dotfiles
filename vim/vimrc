@@ -19,7 +19,8 @@ Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 "Plugin 'powerline/powerline'
-
+Plugin 'easymotion/vim-easymotion'
+Plugin 'haya14busa/vim-easyoperator-line'
 
 call vundle#end()
 
@@ -96,7 +97,7 @@ set clipboard=unnamedplus       " use unix clipboard insted of the vim local cli
 " ============================================================
 
 " set leader to space
-nmap <space> <leader>
+nmap <\> <leader>
 
 " maps the window movement 
 map <c-Down> <c-w>j
@@ -163,6 +164,8 @@ let g:UltiSnipsListSnippets = '<C-s>'
 
 " TagbarToggle
 nmap <leader>tg :TagbarToggle<CR>
+
+" Easymotion
 
 " ======== Java ==========
 " java function that only runs on java files.
