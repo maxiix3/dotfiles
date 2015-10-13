@@ -12,5 +12,5 @@ i3blocks
 ranger  
 URxvt  
 vim  
-oh my zsh/zsh
-(fortune/ponyday)
+oh my zsh/zsh  
+(fortune/ponyday)  
