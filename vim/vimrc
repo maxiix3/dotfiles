@@ -97,7 +97,7 @@ set clipboard=unnamedplus       " use unix clipboard insted of the vim local cli
 " ============================================================
 
 " set leader to space
-nmap <\> <leader>
+nmap <space> <leader>
 
 " maps the window movement 
 map <c-Down> <c-w>j
@@ -166,6 +166,15 @@ let g:UltiSnipsListSnippets = '<C-s>'
 nmap <leader>tg :TagbarToggle<CR>
 
 " Easymotion
+map <Leader><leader>l <Plug>(easymotion-lineforward)
+map <Leader><leader>j <Plug>(easymotion-j)
+map <Leader><leader>k <Plug>(easymotion-k)
+map <Leader><leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 
+
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 
 " ======== Java ==========
 " java function that only runs on java files.
