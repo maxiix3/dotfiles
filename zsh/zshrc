@@ -34,6 +34,12 @@ export ZSH=/home/max/.oh-my-zsh
 ZSH_THEME="powerlevel9k/powerlevel9k"
 #POWERLEVEL9K_MODE='awesome-patched'
 
+# setting context to only show user@host when not max@arch-laptop
+export DEFAULT_USER=max
+
+#set vi_mode
+bindkey -v
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -69,6 +75,10 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
 
+#history files
+SAVEHIST=0
+HISTFILE=~/.zsh_history
+
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
@@ -85,21 +95,23 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/u
 
 source $ZSH/oh-my-zsh.sh
 
+unsetopt share_history
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='vim'
+fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -114,8 +126,11 @@ alias date='while true; do date; echo -ne "\033[1F"; sleep 1; done'
 alias ORMlite='wine ~/Desktop/ORMlite/ORMlite/ORMlite.exe &'
 alias ormlite='wine ~/Desktop/ORMlite/ORMlite/ORMlite.exe &'
 alias Ormlite='wine ~/Desktop/ORMlite/ORMlite/ORMlite.exe &'
-
 export EDITOR="vim"
 export BROWSER="google-chrome-stable"
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Lines configured by zsh-newuser-install
+HISTSIZE=1000
+SAVEHIST=100
+bindkey -v
+# End of lines configured by zsh-newuser-install
