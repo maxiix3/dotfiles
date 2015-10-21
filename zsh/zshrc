@@ -33,6 +33,9 @@ export ZSH=/home/max/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel9k/powerlevel9k"
 #POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+#POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 
 # setting context to only show user@host when not max@arch-laptop
 export DEFAULT_USER=max
