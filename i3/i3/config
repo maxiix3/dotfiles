@@ -176,10 +176,10 @@ bar {
 
 # startup
 exec --no-startup-id nm-applet &
-exec --no-startup-id feh --bg-scale ~/Pictures/wallhaven-139063.jpg &
+exec --no-startup-id feh --bg-scale ~/Pictures/wallhaven-15769.jpg &
 #exec --no-startup-id touchegg
 exec --no-startup-id syndaemon -t -k -i 2 -d &
-exec --no-startup-id xss-lock -- /usr/bin/slimlock &
+exec --no-startup-id xss-lock -- /usr/bin/slimlock 
 
 # Personal keybindings for multimedia keys
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5- && amixer -q set Master unmute
