@@ -193,8 +193,10 @@ function! Cfiles()
     let g:indentLine_color_term = 239
     let g:indentLine_color_gui = '#09AA08'
     let g:indentLine_char = '│'
-    nnoremap <buffer> <F5> :w<CR>:!gcc-4.4 -Wall -g %<CR>
-    inoremap <buffer> <F5> <esc>:w<CR>:!gcc-4.4 -Wall -g %<CR>
+    "nnoremap <buffer> <F5> :w<CR>:!gcc-4.4 -Wall -g %<CR>
+    "inoremap <buffer> <F5> <esc>:w<CR>:!gcc-4.4 -Wall -g %<CR>
+    nnoremap <buffer> <F5> :w<CR>:!make<CR>
+    inoremap <buffer> <F5> <esc>:w<CR>:!make<CR>
     nnoremap <buffer> <F12> :w<CR>:!./a.out<CR>
     inoremap <buffer> <F12> <esc>:w<CR>:!./a.out<CR>
 endfunction
