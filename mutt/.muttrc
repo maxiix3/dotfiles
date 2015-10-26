@@ -22,7 +22,7 @@ set smtp_url = "smtp://smtp.uio.no:587"
 set realname = "Maximiliano Horta" 
 #mailboxes = =spam
 
-set from="Maximiliano Horta <maximinh@ifi.uio.no>"
+set from="Maximiliano Horta <maximinh@mail.uio.no>"
 
 set imap_user=maximinh
 
