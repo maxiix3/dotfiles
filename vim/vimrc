@@ -126,8 +126,6 @@ if has('syntax') && !exists('g:syntax_on')
   syntax enable
 endif
 
-
-
 set linebreak
 if exists('+breakindent')
 	set breakindent
