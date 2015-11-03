@@ -1,6 +1,7 @@
 #Farger 
 source ~/.mutt/colors 
-
+#passord
+source "gpg -d ~/.mutt/uio_pass.gpg |"
 bind index "^" imap-fetch-mail
 
 # Tegnsett 
@@ -21,13 +22,12 @@ set smtp_url = "smtp://smtp.uio.no:587"
 
 set realname = "Maximiliano Horta" 
 #mailboxes = =spam
-
 set from="Maximiliano Horta <maximinh@mail.uio.no>"
-
 set imap_user=maximinh
 
 # Adresseboka til UiO
-#set query_command="/snacks/bin/perl -MCPAN ~/skript/mutt-ldap.pl '%s'" 
+set query_command = "perl ~/dotfiles/mutt/mutt-ldap.pl '%s'"
+bind editor "\t" complete-query
 
 #----------------------------------------
 # Skrive - svare paa e-post
@@ -57,12 +57,14 @@ hdr_order date: from: to: subject: cc: user-agent: x-mailer:
 
 # set default sorting to threaded
 set sort=threads
+set sort_aux=last-date-received
+# Å lese html
+auto_view text/html
+alternative_order text/enriched text/plain text/html 
 
 #---------------------------------------
 # Makroer
 
-# Arkivere leste meldinger
-macro index Ã¦ "$"
-macro index Ã¸ "<tag-pattern>~R<enter>\
-<tag-prefix><save-message>=2015-behandlet<enter>" \
-"Lagre leste meldinger () i =2015-behandlet"
+# Makro for å bytte konto - litt slitsom når man bruker imap
+# macro compose v ":source ~/.mutt/identity_\`echo $(($(date +%s) % $(ls ~/.mutt/identity_[0-9]* | wc -l) + 1))\`\n"
+
