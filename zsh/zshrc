@@ -129,6 +129,8 @@ alias date='while true; do date; echo -ne "\033[1F"; sleep 1; done'
 alias ORMlite='wine ~/Desktop/ORMlite/ORMlite/ORMlite.exe &'
 alias ormlite='wine ~/Desktop/ORMlite/ORMlite/ORMlite.exe &'
 alias Ormlite='wine ~/Desktop/ORMlite/ORMlite/ORMlite.exe &'
+alias USB='cd /mnt/usbstick'
+alias usb='cd /mnt/usbstick'
 export EDITOR="vim"
 export BROWSER="google-chrome-stable"
 
