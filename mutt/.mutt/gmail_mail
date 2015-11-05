@@ -1,0 +1,44 @@
+unset imap_user
+unset imap_pass
+
+set from        = "maximilianohorta94@gmail.com"
+set sendmail    = "/usr/bin/msmtp -a personal"
+set move        = no
+#set mbox        = "+Personal/[Gmail].All\ e-post"
+#set postponed   = "+Personal/[Gmail].Utkast"
+
+#password
+source "gpg2 -dq ~/.mutt/.my-pwds.gpg |"
+
+#set smtp_url = "smtp://maximilianohorta94@smtp.gmail.com:587/"
+#set smtp_pass =$my_pw_personal
+#set from = "maximilianohorta94@gmail.com"
+#set use_from = yes
+#set realname = "Maximiliano Horta"
+#set ssl_force_tls = yes
+
+set imap_user = "maximilianohorta94@gmail.com"
+set imap_pass =$my_pw_personal
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set imap_check_subscribed
+# mailboxes =INBOX =UIO =UIO/RF =jobb/Tusenfryd =Forsvaret.HV
+set postponed="=Utkast"
+#set trash = "+[Google Mail]Bin"
+unset record
+#set record = "+[Google Mail]Sent Mail"
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+set move = no  #Stop asking to "move read messages to mbox"!
+set imap_keepalive = 240 # Gmail trenger litt tettere oppfølging
+
+#set signature="$HOME/.mutt/mh-sig|"
+
+#---------------------------------------
+# Makroer
+
+
+
+#source "gpg -d ~/.mutt/gmail_pw.gpg |"
+
