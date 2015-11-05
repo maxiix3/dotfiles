@@ -213,7 +213,7 @@ function! Pythonfiles()
 
     " pep8 checker, Flake8 <F8>
     let g:pep8_map='<F8>'
-    nnoremap <buffer> <F12> :w<CR>:!python2 % >> %<CR>
+    nnoremap <buffer> <F12> :w<CR>:!python2 % >> % <CR>
     inoremap <buffer> <F12> <esc>:w<CR>:!python2 % >> %<CR>
 
     nnoremap <buffer> <F5> :w<CR>:!python2 %<CR>
