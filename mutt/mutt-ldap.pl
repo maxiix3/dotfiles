@@ -21,7 +21,6 @@ use vars qw { $ldapserver $domain $username $password $basedn };
 $ldapserver = "ldap.uio.no";
 $domain = "uio.no";
 #$username = "";
-#$password = "mypassword";
 $basedn = "dc=uio,dc=no";
 # --- end configuration ---
 

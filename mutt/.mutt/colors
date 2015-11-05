@@ -1,18 +1,18 @@
-#
 # Default color definitions
 color normal     white         black
 color hdrdefault green         black
-color quoted   green         black
+color quoted     green         black
 color quoted1    yellow        black
 color quoted2    red           black
+color quoted3    blue          black
 color signature  cyan          black
-color indicator  black  white
+color indicator  black         white
 color error      brightred     black
-color status   brightwhite   blue
-color tree   brightmagenta black
-color tilde  blue          black
+color status     brightwhite   blue
+color tree       brightmagenta black
+color tilde      blue          black
 color attachment brightyellow  black
-color markers  brightred     black
+color markers    brightred     black
 color message    white         black
 color search     brightwhite   magenta
 color bold       brightyellow  black
@@ -51,14 +51,6 @@ color index green         black "~P !~N !~T !~F"
 color index green         black   "~P ~N !~T !~F"
 color index green         cyan    "~P ~T !~F"
 color index green         red     "~P ~F"
-# messages which mention my name in the body
-folder-hook . 'uncolor index "~b \"Hei Trond\" ~N !~T !~F !~p !~P"'
-folder-hook . 'uncolor index "~b \"Hei Trond\" ~O !~T !~F !~p !~P"'
-folder-hook . 'uncolor index "~b \"Hei Trond\" ~R !~T !~F !~p !~P"'
-folder-hook ""!"" 'color index brightyellow black "~b \"Hei Trond\" ~N !~T !~F !~p !~P"'
-folder-hook ""!"" 'color index brightyellow black "~b \"Hei Trond\" ~O !~T !~F !~p !~P"'
-folder-hook ""!"" 'color index yellow black "~b \"Hei Trond\" ~R !~T !~F !~p !~P"'
-
 
 # Highlights inside the body of a message.
 

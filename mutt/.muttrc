@@ -1,33 +1,21 @@
 #Farger 
-source ~/.mutt/colors 
-#passord
-source "gpg -d ~/.mutt/uio_pass.gpg |"
-bind index "^" imap-fetch-mail
+source ~/.mutt/colors
+source ~/.mutt/setings
 
-# Tegnsett 
- 
+set sendmail ="/usr/bin/msmtp"
+set realname = "Maximiliano Horta"
+set my_user = "maximilianohorta94@gmail.com"
 set charset=utf-8
-#set send_charset=utf-8
 set send_charset="iso-8859-1" 
-#set locale="nn_NO.utf-8" 
- 
-# UiO-ting 
 
-set folder=imaps://imap.uio.no:993/INBOX 
-set mbox=imaps://imap.uio.no:993/INBOX 
-set postponed=imaps://imap.uio.no:993/INBOX.Drafts 
-set record=imaps://imap.uio.no:993/INBOX.Sent 
-set spoolfile=imaps://imap.uio.no:993/INBOX
-set smtp_url = "smtp://smtp.uio.no:587"
+#mapper
+folder-hook 'gmail' 'source ~/.mutt/gmail_mail'
+folder-hook 'UiO' 'source ~/.mutt/uio_mail'
 
-set realname = "Maximiliano Horta" 
-#mailboxes = =spam
-set from="Maximiliano Horta <maximinh@mail.uio.no>"
-set imap_user=maximinh
+#mail
+source ~/.mutt/uio_mail
 
-# Adresseboka til UiO
-set query_command = "perl ~/dotfiles/mutt/mutt-ldap.pl '%s'"
-bind editor "\t" complete-query
+bind index "^" imap-fetch-mail
 
 #----------------------------------------
 # Skrive - svare paa e-post
@@ -43,7 +31,6 @@ set fast_reply=yes
 set edit_headers
 unset fcc_attach # No attachment in the record 
 
-
 #----------------------------------------
 # Lese e-post
 
@@ -52,19 +39,24 @@ ignore *
 unignore date: from: to: subject: cc: user-agent: x-mailer:
 hdr_order date: from: to: subject: cc: user-agent: x-mailer: 
 
-# Utskrift
-#set print_command="~/skript/muttprint-0.73/muttprint"
 
 # set default sorting to threaded
 set sort=threads
 set sort_aux=last-date-received
+
 # Å lese html
 auto_view text/html
 alternative_order text/enriched text/plain text/html 
 
-#---------------------------------------
-# Makroer
+#Macros!
+macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
 # Makro for å bytte konto - litt slitsom når man bruker imap
 # macro compose v ":source ~/.mutt/identity_\`echo $(($(date +%s) % $(ls ~/.mutt/identity_[0-9]* | wc -l) + 1))\`\n"
+
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/uio_mail<enter><change-folder>!<enter>'
+
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/gmail_mail<enter><change-folder>!<enter>'
+
+
 
