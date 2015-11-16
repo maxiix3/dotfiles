@@ -22,8 +22,7 @@ set imap_pass =$my_pw_personal
 set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
 set imap_check_subscribed
-# mailboxes =INBOX =UIO =UIO/RF =jobb/Tusenfryd =Forsvaret.HV
-set postponed="=Utkast"
+#set postponed="=Utkast"
 #set trash = "+[Google Mail]Bin"
 unset record
 #set record = "+[Google Mail]Sent Mail"
@@ -33,12 +32,13 @@ set certificate_file =~/.mutt/certificates
 set move = no  #Stop asking to "move read messages to mbox"!
 set imap_keepalive = 240 # Gmail trenger litt tettere oppfølging
 
-#set signature="$HOME/.mutt/mh-sig|"
-
+set signature = ~/dotfiles/mutt/signaturegmail.txt
 #---------------------------------------
 # Makroer
-
-
+set query_command="goobook query %s"
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
+bind editor <Tab> complete-query
+#macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
 
 #source "gpg -d ~/.mutt/gmail_pw.gpg |"
 

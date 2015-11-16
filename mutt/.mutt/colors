@@ -41,7 +41,7 @@ folder-hook ""!"" 'color index black         cyan    "~T !~F !~p !~P"'
 folder-hook . 'uncolor index "~F !~p !~P"'
 folder-hook ""!"" 'color index black         red     "~F !~p !~P"'
 # messages to me
-color index yellow        black "~p !~N !~T !~F !~P"
+color index yellow        black   "~p !~N !~T !~F !~P"
 color index brightyellow  black   "~p ~N !~T !~F !~P"
 color index brightyellow  black   "~p ~O !~T !~F !~P"
 color index yellow        cyan    "~p ~T !~F !~P"

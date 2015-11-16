@@ -4,7 +4,6 @@ source ~/.mutt/setings
 
 set sendmail ="/usr/bin/msmtp"
 set realname = "Maximiliano Horta"
-set my_user = "maximilianohorta94@gmail.com"
 set charset=utf-8
 set send_charset="iso-8859-1" 
 
@@ -20,8 +19,8 @@ bind index "^" imap-fetch-mail
 #----------------------------------------
 # Skrive - svare paa e-post
 
-set editor = "/usr/bin/vim -c 'set spell spelllang=nb' -c 'set tw=72' -c 'set filetype=mail' -c '/^$/+2'"
-set attribution="Hei %v,\n\n%{%A %d. %b %Y} wrote %n:"
+set editor = "/usr/bin/vim -c 'set spell spelllang=nb'"
+set attribution="Hei %v,\n\n%{%A %d. %b %Y} %n wrote:"
 #set signature="~/.mutt/signature.txt"
 
 # fix bcc to be hidden

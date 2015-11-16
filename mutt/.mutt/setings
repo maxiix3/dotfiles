@@ -28,6 +28,8 @@ bind index,pager <right>  sidebar-open
 
 # Pager View Options ---------------------------------
 unset mark_old
+#set pager_index_lines=9
+#set pager_context=4
 set menu_scroll            # scroll in menus
 set tilde                  # show tildes like in vim
 set markers = no              # no ugly plus signs
@@ -37,6 +39,7 @@ bind pager k  previous-line
 bind pager j  next-line
 bind pager gg top
 bind pager G  bottom
+bind pager R        group-reply
 
 # Index Key Bindings ---------------------------------
 bind index gg       first-entry
