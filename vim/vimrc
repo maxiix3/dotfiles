@@ -18,9 +18,10 @@ Plugin 'justinmk/vim-syntax-extra'
 Plugin 'bling/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'powerline/powerline'
+Plugin 'morhetz/gruvbox'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'haya14busa/vim-easyoperator-line'
+Plugin 'exu/pgsql.vim'
 
 call vundle#end()
 
@@ -37,7 +38,7 @@ set autoindent                  " indenting
 set cindent                     " indenting // don't know the differens
 set autoread                    " automatically re-read when file is changed
 set backspace=indent,eol,start  " smart backspacing
-set backup                      " backup
+"set backup                      " backup
 set backupdir=~/.vim/backup     " directory for backups
 set colorcolumn=80,120          " Highlight right margins
 set cpoptions=aABceFsq          " compatibility options, rtfm
@@ -117,8 +118,10 @@ set pastetoggle=<F2>
 set showmode
 
 " =============== Standard things ===============
-
-colorscheme jellybeans
+let g:gruvbox_italix=1
+colorscheme gruvbox
+set background=dark
+"colorscheme jellybeans
 if has('autocmd')
   filetype plugin indent on
 endif
@@ -259,8 +262,10 @@ endfunction
 autocmd BufNewFile,BufRead *.tex call TexFileStuff()
 "" *}}}
 
+"" ** mutt ** {{{*
 hi mailSubject ctermfg=yellow guifg=yellow
-au BufNewFile,BufRead mutt*    set tw=77 ai nocindent fileencoding=utf-8
+au BufNewFile,BufRead /tmp/mutt-* set tw=78 nocindent fileencoding=utf-8
+"autocmd BufRead /tmp/mutt-* execute "normal /^$/+2"
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
