@@ -47,6 +47,10 @@ set sort_aux=last-date-received
 auto_view text/html
 alternative_order text/enriched text/plain text/html 
 
+# å se bilder/video
+auto_view video/*
+auto_view image/*
+
 #Macros!
 macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
