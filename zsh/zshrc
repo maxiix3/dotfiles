@@ -1,5 +1,5 @@
 # added fortune and ponysay to the top of my shell on startup
-/usr/bin/fortune -a | /usr/bin/ponysay
+#/usr/bin/fortune -a | /usr/bin/ponysay
 # added latest news from aftenposten on shell startup
 if [ "$PS1" ] && [[ $(ping -c1 www.google.com 2>&-) ]]; then
     # The characters "£, §" are used as metacharacters. They should not be encountered in a feed...
@@ -40,8 +40,8 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
 # setting context to only show user@host when not max@arch-laptop
 export DEFAULT_USER=max
 
-#set vi_mode
-bindkey -v
+#set emacsmode
+bindkey -e
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -107,7 +107,7 @@ unsetopt share_history
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -137,5 +137,4 @@ export BROWSER="google-chrome-stable"
 # Lines configured by zsh-newuser-install
 HISTSIZE=1000
 SAVEHIST=100
-bindkey -v
 # End of lines configured by zsh-newuser-install
