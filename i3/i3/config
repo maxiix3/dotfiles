@@ -178,8 +178,8 @@ bar {
 exec --no-startup-id nm-applet &
 exec ~/wallpaper.sh &
 #exec --no-startup-id touchegg
-exec --no-startup-id syndaemon -t -k -i 2 -d &
-exec --no-startup-id xss-lock -- /usr/bin/slimlock 
+exec --no-startup-id syndaemon -t -k -i 2 -d
+exec --no-startup-id xss-lock -- /usr/bin/i3lock -f
 
 # Personal keybindings for multimedia keys
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5- && amixer -q set Master unmute
@@ -191,7 +191,7 @@ bindsym XF86TouchpadToggle exec ~/.i3/toggletouchpad.sh
 
 # Personal keybindings for opning programs
 bindsym $mod+c exec google-chrome-stable
-bindsym $mod+m exec slimlock
+bindsym $mod+m exec i3lock -f
 
 # Gap set
 smart_gaps on
