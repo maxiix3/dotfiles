@@ -38,7 +38,7 @@ set signature = ~/dotfiles/mutt/signaturegmail.txt
 set query_command="goobook query %s"
 macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
 bind editor <Tab> complete-query
-#macro index,pager y "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
+macro index,pager y "<save-message>=[Gmail]/All <enter><enter>" "Archive"
 
 #source "gpg -d ~/.mutt/gmail_pw.gpg |"
 
