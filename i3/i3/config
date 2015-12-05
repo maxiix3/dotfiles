@@ -176,7 +176,7 @@ bar {
 
 # startup
 exec --no-startup-id nm-applet &
-exec ~/wallpaper.sh &
+exec ~/dotfiles/feh/wallpaper.sh &
 #exec --no-startup-id touchegg
 exec --no-startup-id syndaemon -t -k -i 2 -d
 exec --no-startup-id xss-lock -- /usr/bin/i3lock -f
