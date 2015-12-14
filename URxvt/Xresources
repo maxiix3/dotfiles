@@ -5,6 +5,7 @@ URxvt*scrollBar:            false
 URxvt*termName:             rxvt-256color
 URxvt*TERM:                 xterm-256color
 Xterm*utf8:                 2
+URxvt.depth:                0
 
 ! -- copy/paste --!
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
