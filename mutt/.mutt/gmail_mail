@@ -21,8 +21,8 @@ set imap_pass =$my_pw_password
 set folder = "imaps://imap.gmail.com:993"
 set spoolfile = "+INBOX"
 set imap_check_subscribed
-#set postponed="=Utkast"
-#set trash = "+[Google Mail]Bin"
+set postponed="=[Gmail]/Drafts"
+set trash = "=[Gmail]/Trash"
 unset record
 #set record = "+[Google Mail]Sent Mail"
 set header_cache =~/.mutt/cache/headers
@@ -38,6 +38,5 @@ set query_command="goobook query %s"
 macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
 bind editor <Tab> complete-query
 macro index,pager y "<save-message>=[Gmail]/All <enter><enter>" "Archive"
-
-#source "gpg -d ~/.mutt/gmail_pw.gpg |"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 
