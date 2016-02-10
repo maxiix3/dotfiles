@@ -27,7 +27,7 @@ set attribution="Hei %v,\n\n%{%A %d. %b %Y} %n wrote:"
 unset write_bcc
 
 set fast_reply=yes
-set edit_headers
+set edit_headers=yes
 unset fcc_attach # No attachment in the record 
 
 #----------------------------------------
@@ -43,13 +43,13 @@ hdr_order date: from: to: subject: cc: user-agent: x-mailer:
 set sort=threads
 set sort_aux=last-date-received
 
-# Å lese html
+## Å lese html
 auto_view text/html
-alternative_order text/enriched text/plain text/html 
-
-# å se bilder/video
-auto_view video/*
-auto_view image/*
+#alternative_order text/enriched text/plain text/html 
+#
+## å se bilder/video
+#auto_view video/*
+#auto_view image/*
 
 #Macros!
 macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
