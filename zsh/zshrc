@@ -1,6 +1,7 @@
 # added fortune and ponysay to the top of my shell on startup
 #/usr/bin/fortune -a | /usr/bin/ponysay
 # added latest news from aftenposten on shell startup
+
 if [ "$PS1" ] && [[ $(ping -c1 www.google.com 2>&-) ]]; then
     # The characters "£, §" are used as metacharacters. They should not be encountered in a feed...
     echo -e "$(echo $(curl --silent http://www.aftenposten.no/rss/  | awk ' NR == 1 {while ($0 !~ /<\/item>/) {print;getline} sub(/<\/item>.*/,"</item>") ;print}' | sed -e ':a;N;$!ba;s/\n/ /g') | \
@@ -131,6 +132,13 @@ alias ormlite='wine ~/Desktop/ORMlite/ORMlite/ORMlite.exe &'
 alias Ormlite='wine ~/Desktop/ORMlite/ORMlite/ORMlite.exe &'
 alias USB='cd /mnt/usbstick'
 alias usb='cd /mnt/usbstick'
+alias regina='ssh -YC maximinh@regina.uio.no'
+alias rf='ssh -YC rf@login.uio.no'
+alias inf2270='cd ~/Documents/uio/4.semester/inf2270'
+alias inf3400='cd ~/Documents/uio/4.semester/inf3400'
+alias inf1010='cd ~/Documents/uio/2.semester/inf1010'
+alias mat1110='cd ~/Documents/uio/2.semester/mat1110'
+
 export EDITOR="vim"
 export BROWSER="google-chrome-stable"
 
@@ -138,3 +146,4 @@ export BROWSER="google-chrome-stable"
 HISTSIZE=1000
 SAVEHIST=100
 # End of lines configured by zsh-newuser-install
+
