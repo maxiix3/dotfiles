@@ -31,7 +31,11 @@ set certificate_file =~/.mutt/certificates
 set move = no  #Stop asking to "move read messages to mbox"!
 set imap_keepalive = 240 # Gmail trenger litt tettere oppfølging
 
-set signature = ~/dotfiles/mutt/signaturegmail.txt
+send-hook . 'set signature="~/dotfiles/mutt/signaturegmail.txt"'
+reply-hook . 'set signature="~/dotfiles/mutt/signaturegmail.txt"'
+send-hook "svada-core" 'set signature="~/dotfiles/mutt/.mutt/sig_core"'
+reply-hook "svada-core" 'set signature="~/dotfiles/mutt/.mutt/sig_core"'
+
 #---------------------------------------
 # Makroer
 set query_command="goobook query %s"
@@ -39,4 +43,7 @@ macro index,pager a "<pipe-message>goobook add<return>" "add sender to google co
 bind editor <Tab> complete-query
 macro index,pager y "<save-message>=[Gmail]/All <enter><enter>" "Archive"
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index gb "<change-folder>=BMP<enter>" "Go to BMP"
 
+macro index,pager,compose <f9> '<enter-command>set sendmail = "/usr/bin/msmtp -a regi"'
+macro index,pager,compose <f8> '<enter-command>set sendmail = "/usr/bin/msmtp -a personal"'
