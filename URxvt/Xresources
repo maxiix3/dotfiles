@@ -11,6 +11,14 @@ URxvt.depth:                0
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 
+! -- perl extensions -- !
+!URxvt.perl-ext-common: extension_name_1,extension_name_2
+
+! -- clickable URLs --!
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/google-chrome-stable
+URxvt.matcher.button: 1
+
 ! -- Xft settings -- !
 Xft.dpi:                    96
 Xft.antialias:              true
