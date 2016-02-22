@@ -12,7 +12,7 @@ folder-hook 'gmail' 'source ~/.mutt/gmail_mail'
 folder-hook 'UiO' 'source ~/.mutt/uio_mail'
 
 #mail
-source ~/.mutt/uio_mail
+source ~/.mutt/gmail_mail
 
 bind index "^" imap-fetch-mail
 
