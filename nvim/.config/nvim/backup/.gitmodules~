@@ -1,0 +1,3 @@
+[submodule "vim/vim/bundle/vim-easyoperator-line"]
+	path = vim/vim/bundle/vim-easyoperator-line
+	url = git://github.com/haya14busa/vim-easyoperator-line

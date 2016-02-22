@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <stdint.h>
+
+static int n_processes(void);
+pid_t safefork(void);
+int check_bit();

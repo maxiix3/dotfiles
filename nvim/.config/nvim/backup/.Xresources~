@@ -1,0 +1,92 @@
+! scrollbar style - rxvt(default), plain (most compact), next, or xterm
+URxvt.scrollstyle:          rxvt
+URxvt.letterSpace:          -1
+URxvt*scrollBar:            false
+URxvt*termName:             rxvt-256color
+URxvt*TERM:                 xterm-256color
+Xterm*utf8:                 2
+
+! -- copy/paste --!
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+
+! -- Xft settings -- !
+Xft.dpi:                    96
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintfull
+
+!! -- Colors -- !
+!URxvt*background:           black
+URxvt*background:           #121212
+URxvt*foreground:           #FFFFFF
+XTerm*background:           #121212
+XTerm*foreground:           #FFFFFF
+! black
+URxvt.color0  :             #2E3436
+URxvt.color8  :             #555753
+XTerm*color0  :             #2E3436
+XTerm*color8  :             #555753
+! red
+URxvt.color1  :             #CC0000
+URxvt.color9  :             #EF2929
+XTerm*color1  :             #CC0000
+XTerm*color9  :             #EF2929
+! green
+URxvt.color2  :             #4E9A06
+URxvt.color10 :             #8AE234
+XTerm*color2  :             #4E9A06
+XTerm*color10 :             #8AE234
+! yellow
+URxvt.color3  :             #C4A000
+URxvt.color11 :             #FCE94F
+XTerm*color3  :             #C4A000
+XTerm*color11 :             #FCE94F
+! blue
+URxvt.color12  :            #1975FF
+URxvt.color4  :             #3465A4
+!URxvt.color12 :             #729FCF
+XTerm*color4  :             #3465A4
+Xterm*color12 :             #3366FF
+!XTerm*color12 :             #729FCF
+! magenta
+URxvt.color5  :             #75507B
+URxvt.color13 :             #AD7FA8
+XTerm*color5  :             #75507B
+XTerm*color13 :             #AD7FA8
+! cyan
+URxvt.color6  :             #06989A
+URxvt.color14 :             #34E2E2
+XTerm*color6  :             #06989A
+XTerm*color14 :             #34E2E2
+! white
+URxvt.color7  :             #D3D7CF
+URxvt.color15 :             #EEEEEC
+XTerm*color7  :             #D3D7CF
+XTerm*color15 :             #EEEEEC
+
+! -- Fonts -- !
+URxvt.font:                 xft:Dejavu Sans Mono for Powerline:bold:size=12
+XTerm*faceName:             xft:Dejavu Sans Mono for Powerline:bold:size=12
+
+
+!URxvt.font:                xft:monospace:pixelsize=18
+!URxvt.boldfont:            xft:monospace-Bold:pixelsize=18
+
+!Terminus
+!URxvt.font:                xft:Terminus:pixelsize=20:style=Regular
+!URxvt.boldFont:            xft:Terminus:pixelsize=20:style=Bold
+
+!URxvt.font:                xft:bitstream vera sans mono:size=12:antialias=true
+!URxvt.boldFont:            xft:bitstream vera sans mono:bold:size=12:antialias=true
+
+!URxvt*font:                 xft:DejaVu\ Sans\ Mono:bold:pixelsize=15:antialias=true,xft:DejaVu\ Sans\ Mono\ for\ Powerline:bold:pixelsize=15:antialias=true
+
+!DejaVuSans
+!URxvt.font:                xft:DejaVuSansMono:pixelsize=15
+!URxvt.boldfont:            xft:DejaVuSansMono-Bold:pixelsize=15
+
+!URxvt.font:                -misc-termsyn-medium-r-normal--14-101-100-100-c-70-iso8859-1
+!URxvt.boldFont:            -misc-termsyn-bold-r-normal--15-101-100-100-c-70-iso8859-1
+

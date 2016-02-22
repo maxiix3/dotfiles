@@ -1,0 +1,49 @@
+for å lage en SQL så lager man en tablel på følgende måte:
+creat table r(
+atributt type,
+atributt type,
+);
+
+f.eks
+creat table EmneStudent(
+brukernavn VarChar(8),
+gruppe integer,
+emnekode VarChar(7)
+);
+
+creat table Student(
+bnavn Char(9) primary key,      // primary key betyr at det er en primærnøkkel
+uid int unique,                 // unique betyr at det skal være unikt. vi kan
+                                // kun ha en primærnøkkel.
+navn varchar(80) not null,      // kan ikke være NULL (altså ikke tom)
+hjemmeomr varchar(40)
+);
+
+primary key betyr unique og ikke null
+unique betyr også ikke null
+
+vi kan legge inn primary key ved å legge den nederst etter satt alle
+atributtene, i denne formen her:
+primary key (bnavn)
+
+
+legg inn data i tabeller:
+
+inser into R(A1,A2,...Ak)
+values(v1,v2,...,Vk);
+
+attributt listen kan sløyfes hvis values dekker alle atributtene
+
+hvis vi bruker check() så sier det at variablen kun kan være det vi har valgt
+inne i check parantesen.
+
+hvordan lage en tabell som har flere atributter i primary
+
+creat table Person(
+navn varchar(300)),
+fdato varchar(6),
+pnr char(5),
+primary key(fdato,pnr)
+);
+
+

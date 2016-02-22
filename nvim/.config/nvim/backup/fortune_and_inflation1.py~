@@ -1,0 +1,28 @@
+from scitools.std import *
+
+N=10
+def fortune(F,I,p,q):
+	index_set=range(N+1)
+	x=zeros(len(index_set))
+	C=zeros(len(index_set))
+
+	for n in index_set[1:]:
+		C[0]=float(p*q*F/(10**4))
+		C[n]=C[n-1]+(I*C[n-1]/100.)
+
+	for n in index_set[1:]:
+		x[0]=F
+		x[n]=x[n-1]+(p*x[n-1]/100.0)-C[n-1]
+	return x,index_set
+x,index_set=fortune(100,50,10,5)
+
+print index_set, x
+plot(index_set,x)
+show()
+
+"""
+betina@Betina:~/Documents$ python fortune_and_inflation1.py 
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] [ 100.          110.          121.          133.1         146.41        161.051
+  177.1561      194.87171     214.358881    235.7947691   259.37424601]
+"""
+

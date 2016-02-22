@@ -1,0 +1,7 @@
+[user]
+    name = Maximiliano Horta
+    email = maximiliano@horta.net
+[color]
+    ui = true
+[push]
+    default = simple

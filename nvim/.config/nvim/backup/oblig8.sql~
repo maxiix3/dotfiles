@@ -1,0 +1,46 @@
+create table kontaktlærer(
+    lærernavn varchar(50) primary key
+);
+
+create table klasse(
+    klassenavn varchar(50) primary key,
+    kontaktlærer varchar(50) unique references kontaktlærer(lærernavn)
+);
+
+create table allergi(
+    allerginavn varchar(50) primary key
+);
+
+create table SFO(
+    SFOgruppe varchar(50) primary key
+);
+
+create table pårørende(
+    pårørendenavn varchar(50) primary key,
+    pårørendepersonnr int unique,
+    pårørendealder int NOT NULL,
+    pårørendeaddresse varchar(120) NOT NULL,
+    mediesammentykning 
+);
+
+create table elev(
+    elevnavn varchar(50) primary key,
+    morsmål varchar(20) NOT NULL,
+    pårørendenavn varchar(50) NOT NULL references pårørende(pårørendenavn),
+    klassenavn varchar(50) NOT NULL references klasse(klassenavn),
+    trinn int NOT NULL,
+    kjønn varchar (8) NOT NULL,
+    alder int NOT NULL,
+    allergi varhchar(50) references allergi(allerginavn),
+    sfogruppe varchar(50) references sfo(sfogruppe),
+    mediesammentykning references pårørende(mediesammentykning)
+);
+
+insert into kontaktlærer
+Values ('Lise Larsen');
+
+insert into kontaktlærer
+values ('Mette Martinsen');
+
+insert into klasse
+VALUES('klasse blå', 'Lise Larsen');

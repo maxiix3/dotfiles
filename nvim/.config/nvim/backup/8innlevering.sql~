@@ -1,0 +1,15 @@
+-- oppgave 1
+
+SELECT *
+FROM film F, filmgenre G
+where F.title like 'Rush Hour%' AND (g.genre = 'Sport' OR G.genre = 'Action') AND f.filmid = g.filmid
+;
+
+-- oppgave 2
+SELECT f.title, f.prodyear, fi.filmtype
+from film F, filmtype FI
+where prodyear = 1893 AND F.filmid = FI.filmid
+;
+
+--oppgave 3
+

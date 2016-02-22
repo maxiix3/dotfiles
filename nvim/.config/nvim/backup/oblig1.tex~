@@ -1,0 +1,256 @@
+\documentclass[11pt]{article}
+\input kvmacros
+\title{\textbf{INF1400 Oblig 1 H14}}
+\author{Ole-Christian Schmidt Hagenes}
+\date{}
+\usepackage{tikz}
+\usetikzlibrary{matrix,calc}
+
+%isolated term
+%#1- space between node and grouping line. Default=0
+%#2- node
+%#3- filling color
+\newcommand{\implicantsol}[3][0]{
+    \draw[rounded corners=3pt, fill=#3, opacity=.3] ($(#2.north west)+(135:#1)$) rectangle ($(#2.south east)+(-45:#1)$);
+    }
+
+
+%internal group
+%#1-space between node and grouping line. Default=0
+%#2-top left node
+%#3-bottom right node
+%#4-filling color
+\newcommand{\implicant}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=.3] ($(#2.north west)+(135:#1)$) rectangle ($(#3.south east)+(-45:#1)$);
+    }
+
+%group lateral borders
+%#1-space between node and grouping line. Default=0
+%#2-top left node
+%#3-bottom right node
+%#4-filling color
+\newcommand{\implicantcostats}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=.3] ($(rf.east |- #2.north)+(90:#1)$)-| ($(#2.east)+(0:#1)$) |- ($(rf.east |- #3.south)+(-90:#1)$);
+    \draw[rounded corners=3pt, fill=#4, opacity=.3] ($(cf.west |- #2.north)+(90:#1)$) -| ($(#3.west)+(180:#1)$) |- ($(cf.west |- #3.south)+(-90:#1)$);
+}
+
+%group top-bottom borders
+%#1-space between node and grouping line. Default=0
+%#2-top left node
+%#3-bottom right node
+%#4-filling color
+\newcommand{\implicantdaltbaix}[4][0]{
+    \draw[rounded corners=3pt, fill=#4, opacity=.3] ($(cf.south -| #2.west)+(180:#1)$) |- ($(#2.south)+(-90:#1)$) -| ($(cf.south -| #3.east)+(0:#1)$);
+    \draw[rounded corners=3pt, fill=#4, opacity=.3] ($(rf.north -| #2.west)+(180:#1)$) |- ($(#3.north)+(90:#1)$) -| ($(rf.north -| #3.east)+(0:#1)$);
+}
+
+%group corners
+%#1-space between node and grouping line. Default=0
+%#2-filling color
+\newcommand{\implicantcantons}[2][0]{
+    \draw[rounded corners=3pt, fill=#2, opacity=.3] ($(rf.east |- 0.south)+(-90:#1)$) -| ($(0.east |- cf.south)+(0:#1)$);
+    \draw[rounded corners=3pt, fill=#2, opacity=.3] ($(rf.east |- 8.north)+(90:#1)$) -| ($(8.east |- rf.north)+(0:#1)$);
+    \draw[rounded corners=3pt, fill=#2, opacity=.3] ($(cf.west |- 2.south)+(-90:#1)$) -| ($(2.west |- cf.south)+(180:#1)$);
+    \draw[rounded corners=3pt, fill=#2, opacity=.3] ($(cf.west |- 10.north)+(90:#1)$) -| ($(10.west |- rf.north)+(180:#1)$);
+}
+
+%Empty Karnaugh map 4x4
+\newenvironment{Karnaugh}[2]%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (4,4);
+\draw (0,4) -- node [pos=0.7,above right,anchor=south west] {#2} node [pos=0.7,below left,anchor=north east] {#1} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=8.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+                       \& |(c00)| 00         \& |(c01)| 01         \& |(c11)| 11         \& |(c10)| 10         \& |(cf)| \phantom{00} \\
+|(r00)| 00             \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \& |(3)|  \phantom{0} \& |(2)|  \phantom{0} \&                     \\
+|(r01)| 01             \& |(4)|  \phantom{0} \& |(5)|  \phantom{0} \& |(7)|  \phantom{0} \& |(6)|  \phantom{0} \&                     \\
+|(r11)| 11             \& |(12)| \phantom{0} \& |(13)| \phantom{0} \& |(15)| \phantom{0} \& |(14)| \phantom{0} \&                     \\
+|(r10)| 10             \& |(8)|  \phantom{0} \& |(9)|  \phantom{0} \& |(11)| \phantom{0} \& |(10)| \phantom{0} \&                     \\
+|(rf) | \phantom{00}   \&                    \&                    \&                    \&                    \&                     \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Empty Karnaugh map 2x4
+\newenvironment{Karnaughvuit}[2]%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (4,2);
+\draw (0,2) -- node [pos=0.7,above right,anchor=south west] {#2} node [pos=0.7,below left,anchor=north east] {#1} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=4.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+                      \& |(c00)| 00         \& |(c01)| 01         \& |(c11)| 11         \& |(c10)| 10         \& |(cf)| \phantom{00} \\
+|(r00)| 0             \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \& |(3)|  \phantom{0} \& |(2)|  \phantom{0} \&                     \\
+|(r01)| 1             \& |(4)|  \phantom{0} \& |(5)|  \phantom{0} \& |(7)|  \phantom{0} \& |(6)|  \phantom{0} \&                     \\
+|(rf) | \phantom{00}  \&                    \&                    \&                    \&                    \&                     \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Empty Karnaugh map 2x2
+\newenvironment{Karnaughquatre}[2]%
+{
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
+\draw (0,0) grid (2,2);
+\draw (0,2) -- node [pos=0.7,above right,anchor=south west] {#2} node [pos=0.7,below left,anchor=north east] {#1} ++(135:1);
+%
+\matrix (mapa) [matrix of nodes,
+        column sep={0.8cm,between origins},
+        row sep={0.8cm,between origins},
+        every node/.style={minimum size=0.3mm},
+        anchor=2.center,
+        ampersand replacement=\&] at (0.5,0.5)
+{
+          \& |(c00)| 0          \& |(c01)| 1  \\
+|(r00)| 0 \& |(0)|  \phantom{0} \& |(1)|  \phantom{0} \\
+|(r01)| 1 \& |(2)|  \phantom{0} \& |(3)|  \phantom{0} \\
+};
+}%
+{
+\end{tikzpicture}
+}
+
+%Defines 8 or 16 values (0,1,X)
+\newcommand{\contingut}[1]{%
+\foreach \x [count=\xi from 0]  in {#1}
+     \path (\xi) node {\x};
+}
+
+%Places 1 in listed positions
+\newcommand{\minterms}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {1};
+}
+
+%Places 0 in listed positions
+\newcommand{\maxterms}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {0};
+}
+
+%Places X in listed positions
+\newcommand{\indeterminats}[1]{%
+    \foreach \x in {#1}
+        \path (\x) node {X};
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Sannhetstabell}
+
+Eg begynte med \aa\ sette opp sannhetstabell for alle diodene i 7-segmenten
+\\
+
+\begin{tabular}[t]{r|ccc|ccccccc}
+$\Sigma$&$X_2$&$X_1$&$X_0$&$a$&$b$&$c$&$d$&$e$&$f$&$g$\\
+\hline
+$m_0$&0&0&0&1&1&1&1&1&1&0\\
+$m_1$&0&0&1&0&1&1&0&0&0&0\\
+$m_2$&0&1&0&1&1&0&1&1&0&1\\
+$m_3$&0&1&1&1&1&1&1&0&0&1\\
+$m_4$&1&0&1&0&1&1&0&0&1&1\\
+$m_5$&1&0&0&1&0&1&1&0&1&1\\
+$m_6$&1&1&0&1&0&1&1&1&1&1\\
+$m_7$&1&1&1&X&X&X&X&X&X&X\\
+\end{tabular}
+\newpage
+
+\section{Karaughdiagram}
+
+Utifra sannhetstabellen satt eg opp karnaughdiagram.
+\\
+
+For utgang a \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ For utgang b\\
+    \begin{Karnaughvuit}{$X_2$}{$X_1$$X_0$}
+       \minterms{0,2,3,5,6}
+       \indeterminats{7}
+       \implicant{3}{6}{red}
+       \implicantsol{0}{green}
+       \implicantsol{3}{green}
+       \implicantsol{5}{green}
+       \implicantsol{6}{green}
+    \end{Karnaughvuit}
+    %
+    \begin{Karnaughvuit}{$X_2$}{$X_1$$X_0$}
+       \minterms{0,1,2,3,4}
+       \indeterminats{7}
+       \implicant{0}{4}{red}
+       \implicant{0}{2}{green}
+    \end{Karnaughvuit}  
+
+For utgang c \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ For utgang d\\
+    \begin{Karnaughvuit}{$X_2$}{$X_1$$X_0$}
+       \minterms{0,1,3,4,5,6}
+       \indeterminats{7}
+       \implicant{0}{5}{red}
+       \implicant{4}{6}{green}
+       \implicant{1}{7}{blue}
+    \end{Karnaughvuit}
+    %
+    \begin{Karnaughvuit}{$X_2$}{$X_1$$X_0$}
+       \minterms{0,2,3,5,6}
+       \indeterminats{7}
+       \implicant{3}{6}{red}
+       \implicantsol{0}{green}
+       \implicantsol{3}{green}
+       \implicantsol{5}{green}
+       \implicantsol{6}{green}
+    \end{Karnaughvuit}
+
+For utgang e \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ For utgang f\\
+    \begin{Karnaughvuit}{$X_2$}{$X_1$$X_0$}
+       \minterms{0,2,6}
+       \indeterminats{7}
+       \implicantcostats{0}{2}{red}
+       \implicant{2}{6}{green}
+    \end{Karnaughvuit}
+    %
+    \begin{Karnaughvuit}{$X_2$}{$X_1$$X_0$}
+       \minterms{0,4,5,6}
+       \indeterminats{7}
+       \implicant{4}{6}{red}
+       \implicant{0}{4}{green}
+    \end{Karnaughvuit}
+    
+    For utgang g\\
+    \begin{Karnaughvuit}{$X_2$}{$X_1$$X_0$}
+       \minterms{2,3,4,5,6}
+       \indeterminats{7}
+       \implicant{4}{6}{red}
+       \implicant{3}{6}{green}
+    \end{Karnaughvuit}
+    
+\section{Forenklede uttrykk}
+Utifra karnaugh-diagrammene laget eg de forenklede uttrykkene:\\
+\\
+$a = \overline{(X_2 \oplus X_1 \oplus X_0)}+X_1$\\
+$b = \overline{X_2}+\overline{(X_1 + X_0)}$\\
+$c = X_2 + \overline{X_1} + X_0 = \overline{(\overline{X_2} X_1 \overline{X_0})}$\\
+$d = \overline{(X_2 \oplus X_1 \oplus X_0)}+X_1$\\
+$e = \overline{(X_2 + X_0)} + X_1\overline{X_0}$\\
+$f = X_2 + \overline{(X_1 + X_0)}$\\
+$g = X_2 + X_1$\\
+\\
+Vi ser p\aa\ b\aa de karnaughdiagrammet og uttrykket at a og d er like. 
+I b\aa de b og f finner vi $\overline{(X_1 + X_0)}$. Disse uttrykkene kan
+vi gjenbruke p\aa\ portniv\aa . 
+\end{document}

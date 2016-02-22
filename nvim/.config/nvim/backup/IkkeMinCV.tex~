@@ -1,0 +1,265 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2012 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\documentclass[10pt,a4paper,sans]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+\usepackage[utf8]{inputenc}
+% moderncv themes
+\moderncvstyle{classic}                        % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                          % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\rmdefault}    % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}                  % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                         % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}           % if you want to change the width of the column with the dates
+%\setlength{\maketitlenamewidth}{10cm}        % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\firstname{Ole-Christian}
+\familyname{Hagenes}
+%\title{Curriculum vitae}               % optional, remove the line if not wanted
+\address{Moldegata 45}{0445 Oslo}    % optional, remove the line if not wanted
+\mobile{905 89 347}                     % optional, remove the line if not wanted
+%\phone{+2~(345)~678~901}                      % optional, remove the line if not wanted
+%\fax{+3~(456)~789~012}                        % optional, remove the line if not wanted
+\email{ole@hagenes.net}                          % optional, remove the line if not wanted
+%\homepage{www.johndoe.com}                    % optional, remove the line if not wanted
+%\extrainfo{additional information}            % optional, remove the line if not wanted
+%\photo[64pt][0.4pt]{picture}                  % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\quote{Some quote (optional)}                 % optional, remove the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                     % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\section{Utdanning}
+\cventry{2014--}{Informatikk: nanoelektronikk og robotikk}{Universitetet i Oslo}{}{}{}
+\cventry{2007}{Fagbrev elektriker}{Petterson {\&} Gjellesvik}{}{}{}
+\cventry{2005}{VK1 Elektro}{Privatist}{}{}{}
+\cventry{2004}{Fagbrev serviceelektroniker}{MTU Service}{}{}{}
+\cventry{2001--2002}{VK2 Servicelektronikk}{Bergen yrkesskole}{}{}{}
+\cventry{2000--2001}{VK1 Elektronikk}{Laksevåg videregående skole}{}{}{} %{City}{\textit{Grade}}{Description}
+\cventry{1999--2000}{GK Elektro}{Sotra videregåande skule}{}{}{}  % arguments 3 to 6 can be left empty
+
+%\section{Master thesis}
+%\cvitem{title}{\emph{Title}}
+%\cvitem{supervisors}{Supervisors}
+%\cvitem{description}{Short thesis abstract}
+
+\section{Arbeidserfaring}
+\cventry{2012--2014}{Rental {\&} maintenance coordinator}{Oceaneering}{Stavanger}{}{Ansvarlig for koordinering av vedlikehold og reparasjon av subsea tooling.}
+\cventry{2011--2012}{Tekniker ROV-verksted}{Oceaneering}{Stavanger}{}{Ansvarlig for å planlegge og utføre vedlikeholdet av ROVer.}
+\cventry{2007--2010}{Tekniker toolingverksted}{Oceaneering}{Stavanger}{}{Vedlikehold av subsea tooling. Dette inkluderer elektronikk, hydraulikk og mekanikk. \newline
+	Fikk etterhvert ansvaret for forbruksmatriell på elektrolaben.\newline Fra sommeren 2008 fekk eg ansvaret for oppfølging av automatikkerlærlingene på verkstedet.}
+\cventry{2006--2007}{Lærling elektriker}{Petterson {\&} Gjellesvik}{Bergen}{}{Instalasjon av elektrisk anlegg i nye industribygg og leilighetskompleks.}
+\cventry{2004--2006}{Lærling elektriker}{Westland elektro}{Bergen}{}{Instalsjon av elektrisk anlegg i nye eneboliger samt service på eldre anlegg i eneboliger.}
+\cventry{2004--2004}{Sommerhjelp}{BI Elektro}{Bergen}{}{Monterte brannalarmanlegg og telefon/data i nye leiligheter.}
+\cventry{2002--2004}{Lærling serviceelektroniker}{MTU Service}{Bærum}{}{Utførte vedlikehold og mottakskontroll av medisinsk teknisk utstyr.\newline{}Kjørte utlevering av medisinsk utstyr til hjemmebrukere i Akershus og Buskerud}
+
+\section{Språkkunskap}
+\cvitemwithcomment{Engelsk}{Gode kunnskaper muntlig og skriftlig}{}
+%\cvitemwithcomment{Language 2}{Skill level}{Comment}
+%\cvitemwithcomment{Language 3}{Skill level}{Comment}
+
+%\section{Datakunnskaper}
+%\cvitemwithcomment{Gode}{Windows, Office, Lighthouse, Toolpool Manager}{}
+%\cvitemwithcomment{Kjent med}{Peoplesoft, PDMworks}{}
+%\cvitemwithcomment{Lite erfaring}{AutoCAD, Solidworks}{}
+%\cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
+%\cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+
+%\section{Interests}
+%\cvitem{hobby 1}{Description}
+%\cvitem{hobby 2}{Description}
+%\cvitem{hobby 3}{Description}
+
+%\section{Extra 1}
+%\cvlistitem{Item 1}
+%\cvlistitem{Item 2}
+%\cvlistitem{Item 3}
+%% start of file `template.tex'.
+%% Copyright 2006-2012 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\documentclass[10pt,a4paper,sans]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+\usepackage[utf8]{inputenc}
+% moderncv themes
+\moderncvstyle{classic}                        % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                          % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\rmdefault}    % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+%\usepackage[utf8]{inputenc}                  % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                         % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}           % if you want to change the width of the column with the dates
+%\setlength{\maketitlenamewidth}{10cm}        % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\firstname{Ole-Christian}
+\familyname{Hagenes}
+%\title{Curriculum vitae}               % optional, remove the line if not wanted
+\address{Moldegata 45}{0445 Oslo}    % optional, remove the line if not wanted
+\mobile{905 89 347}                     % optional, remove the line if not wanted
+%\phone{+2~(345)~678~901}                      % optional, remove the line if not wanted
+%\fax{+3~(456)~789~012}                        % optional, remove the line if not wanted
+\email{ole@hagenes.net}                          % optional, remove the line if not wanted
+%\homepage{www.johndoe.com}                    % optional, remove the line if not wanted
+%\extrainfo{additional information}            % optional, remove the line if not wanted
+%\photo[64pt][0.4pt]{picture}                  % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\quote{Some quote (optional)}                 % optional, remove the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                     % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\section{Utdanning}
+\cventry{2014--}{Informatikk: nanoelektronikk og robotikk}{Universitetet i Oslo}{}{}{}
+\cventry{2007}{Fagbrev elektriker}{Petterson {\&} Gjellesvik}{}{}{}
+\cventry{2005}{VK1 Elektro}{Privatist}{}{}{}
+\cventry{2004}{Fagbrev serviceelektroniker}{MTU Service}{}{}{}
+\cventry{2001--2002}{VK2 Servicelektronikk}{Bergen yrkesskole}{}{}{}
+\cventry{2000--2001}{VK1 Elektronikk}{Laksevåg videregående skole}{}{}{} %{City}{\textit{Grade}}{Description}
+\cventry{1999--2000}{GK Elektro}{Sotra videregåande skule}{}{}{}  % arguments 3 to 6 can be left empty
+
+%\section{Master thesis}
+%\cvitem{title}{\emph{Title}}
+%\cvitem{supervisors}{Supervisors}
+%\cvitem{description}{Short thesis abstract}
+
+\section{Arbeidserfaring}
+\cventry{2012--2014}{Rental {\&} maintenance coordinator}{Oceaneering}{Stavanger}{}{Ansvarlig for koordinering av vedlikehold og reparasjon av subsea tooling.}
+\cventry{2011--2012}{Tekniker ROV-verksted}{Oceaneering}{Stavanger}{}{Ansvarlig for å planlegge og utføre vedlikeholdet av ROVer.}
+\cventry{2007--2010}{Tekniker toolingverksted}{Oceaneering}{Stavanger}{}{Vedlikehold av subsea tooling. Dette inkluderer elektronikk, hydraulikk og mekanikk. \newline
+	Fikk etterhvert ansvaret for forbruksmatriell på elektrolaben.\newline Fra sommeren 2008 fekk eg ansvaret for oppfølging av automatikkerlærlingene på verkstedet.}
+\cventry{2006--2007}{Lærling elektriker}{Petterson {\&} Gjellesvik}{Bergen}{}{Instalasjon av elektrisk anlegg i nye industribygg og leilighetskompleks.}
+\cventry{2004--2006}{Lærling elektriker}{Westland elektro}{Bergen}{}{Instalsjon av elektrisk anlegg i nye eneboliger samt service på eldre anlegg i eneboliger.}
+\cventry{2004--2004}{Sommerhjelp}{BI Elektro}{Bergen}{}{Monterte brannalarmanlegg og telefon/data i nye leiligheter.}
+\cventry{2002--2004}{Lærling serviceelektroniker}{MTU Service}{Bærum}{}{Utførte vedlikehold og mottakskontroll av medisinsk teknisk utstyr.\newline{}Kjørte utlevering av medisinsk utstyr til hjemmebrukere i Akershus og Buskerud}
+
+\section{Språkkunskap}
+\cvitemwithcomment{Engelsk}{Gode kunnskaper muntlig og skriftlig}{}
+%\cvitemwithcomment{Language 2}{Skill level}{Comment}
+%\cvitemwithcomment{Language 3}{Skill level}{Comment}
+
+%\section{Datakunnskaper}
+%\cvitemwithcomment{Gode}{Windows, Office, Lighthouse, Toolpool Manager}{}
+%\cvitemwithcomment{Kjent med}{Peoplesoft, PDMworks}{}
+%\cvitemwithcomment{Lite erfaring}{AutoCAD, Solidworks}{}
+%\cvdoubleitem{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
+%\cvdoubleitem{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+
+%\section{Interests}
+%\cvitem{hobby 1}{Description}
+%\cvitem{hobby 2}{Description}
+%\cvitem{hobby 3}{Description}
+
+%\section{Extra 1}
+%\cvlistitem{Item 1}
+%\cvlistitem{Item 2}
+%\cvlistitem{Item 3}
+
+%\renewcommand{\listitemsymbol}{-~}            % change the symbol for lists
+
+%\section{Extra 2}
+%\cvlistdoubleitem{Item 1}{Item 4}
+%\cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
+%\cvlistdoubleitem{Item 3}{}
+
+% Publications from a BibTeX file without multibib\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% for BibTeX numerical labels
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{publications}                   % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}              % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}              % 'publications' is the name of a BibTeX file
+
+%\clearpage
+%\clearp age\end{CJK*}                         % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\section{Hobby}
+\cvitemwithcomment{Motorsport}{Rally}{Drevet med rally i flere år og har derfor skrudd mye bil inkludert motor og gearkasser.}
+%\cventry{}{Motorsport}{Drevet med rally i flere år og har derfor skrudd mye bil inkludert motor og gearkasse}
+\section{Referanser}
+\cvitemwithcomment{}{Oppgis på forespørsel}{}
+\end{document}
+
+
+%% end of file `template.tex'.
+%\renewcommand{\listitemsymbol}{-~}            % change the symbol for lists
+
+%\section{Extra 2}
+%\cvlistdoubleitem{Item 1}{Item 4}
+%\cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
+%\cvlistdoubleitem{Item 3}{}
+
+% Publications from a BibTeX file without multibib\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% for BibTeX numerical labels
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{publications}                   % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}              % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}              % 'publications' is the name of a BibTeX file
+
+%\clearpage
+%\clearp age\end{CJK*}                         % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\section{Hobby}
+\cvitemwithcomment{Motorsport}{Rally}{Drevet med rally i flere år og har derfor skrudd mye bil inkludert motor og gearkasser.}
+%\cventry{}{Motorsport}{Drevet med rally i flere år og har derfor skrudd mye bil inkludert motor og gearkasse}
+\section{Referanser}
+\cvitemwithcomment{}{Oppgis på forespørsel}{}
+\end{document}
+
+
+%% end of file `template.tex'.

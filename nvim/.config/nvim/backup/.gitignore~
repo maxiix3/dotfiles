@@ -1,0 +1,11 @@
+*.jpeg
+*.png
+*.tmp
+*.jpg
+*.circ
+*.log
+*.aux
+*.o
+*.out
+3.semester/INF1060h15/
+*.tgz

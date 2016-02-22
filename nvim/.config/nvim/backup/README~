@@ -1,0 +1,17 @@
+known bugs:
+-first time it won't work, you have to press enter 1 time to make it work.
+It doesn't fill the param, I was trying to fix the bug, but didn't understand why
+it handled that way only the first time.
+- history adds only h, didn't got time to find out why
+- massive!!! memory leaks!
+
+
+Makefile:
+If you compiling your system on a uio computer use make, make debug. 
+If your system is like mine, where ws and ps is not placed as on a uio computer
+you can compile this file with make arch if its correct. Else you can just change 
+the path.
+
+Other:
+sorry for very messy code. didn't got time to split it naturaly up in differnt files and headers. 
+
