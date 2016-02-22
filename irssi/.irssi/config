@@ -389,7 +389,7 @@ settings = {
   core = {
     real_name = "Maximiliano Horta";
     user_name = "maxiix3";
-    nick = "maxii";
+    nick = "maximinh";
   };
   "fe-text" = { actlist_sort = "refnum"; };
 };

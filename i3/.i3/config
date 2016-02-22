@@ -180,6 +180,7 @@ exec ~/dotfiles/feh/wallpaper.sh &
 #exec --no-startup-id touchegg
 exec --no-startup-id syndaemon -t -k -i 2 -d
 exec --no-startup-id xss-lock -- /usr/bin/i3lock -f
+exec --no-startup-id redshift-gtk &
 
 # Personal keybindings for multimedia keys
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5- && amixer -q set Master unmute
