@@ -10,6 +10,10 @@ set move        = no
 #password
 source "gpg2 -dq ~/.mutt/.gmail_pwds.gpg |"
 
+# Alias
+alias identity_1  Maximiliano Horta     <maximilianohorta94@gmail.com> 
+alias identity_2  Maximiliano Horta     <regiformann@rf.uio.no> 
+
 #set smtp_url = "smtp://maximilianohorta94@smtp.gmail.com:587/"
 #set smtp_pass =$my_pw_personal
 #set from = "maximilianohorta94@gmail.com"
@@ -35,6 +39,9 @@ send-hook . 'set signature="~/dotfiles/mutt/signaturegmail.txt"'
 reply-hook . 'set signature="~/dotfiles/mutt/signaturegmail.txt"'
 send-hook "svada-core" 'set signature="~/dotfiles/mutt/.mutt/sig_core"'
 reply-hook "svada-core" 'set signature="~/dotfiles/mutt/.mutt/sig_core"'
+send-hook "regiformann" 'set signature="~/.mutt/sig_regiformann"'
+reply-hook "regiformann" 'set signature="~/.mutt/sig_regiformann"'
+
 
 #---------------------------------------
 # Makroer
@@ -45,5 +52,8 @@ macro index,pager y "<save-message>=[Gmail]/All <enter><enter>" "Archive"
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index gb "<change-folder>=BMP<enter>" "Go to BMP"
 
-macro index,pager,compose <f9> '<enter-command>set sendmail = "/usr/bin/msmtp -a regi"'
-macro index,pager,compose <f8> '<enter-command>set sendmail = "/usr/bin/msmtp -a personal"'
+#macro index,pager,compose <f9> '<enter-command>set sendmail = "/usr/bin/msmtp -a regi"'
+#macro index,pager,compose <f8> '<enter-command>set sendmail = "/usr/bin/msmtp -a personal"'
+macro compose v "<edit-from>^Uidentity_<tab>" "Select from" 
+
+
