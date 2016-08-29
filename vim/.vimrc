@@ -1,3 +1,4 @@
+" =================== Vundle/plugins ====================
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -25,28 +26,33 @@ Plugin 'exu/pgsql.vim'
 
 call vundle#end()
 
+" =============== Standard things ===============
+let g:gruvbox_italix=1
+colorscheme gruvbox
+"colorscheme jellybeans         " backup colorscheme
+if has('autocmd')
+  filetype plugin indent on
+endif
+if has('syntax') && !exists('g:syntax_on')
+  syntax enable
+endif
+" ==========================================================
 " ===================== SET part ===========================
-
-"set foldmethod=indent           " make classes and other things folded
-"set foldnestmax=1               " set max folds.
-" set fillchars=stl:_,stlnc:-,vert:\|,fold:\ ,diff:- something to do with foldable
-set t_Co=256                    " adds 256 color support
-"set t_AB=^[[48;5;%dm            " adds 256 color support   Don't needed
-"set t_AF=^[[38;5;%dm            " adds 256 color support   Don't needed
+" ==========================================================
 set autochdir                   " cd to dir of current file
 set autoindent                  " indenting
-set cindent                     " indenting // don't know the differens
 set autoread                    " automatically re-read when file is changed
+set background=dark             " make the background grey
 set backspace=indent,eol,start  " smart backspacing
-"set backup                      " backup
 set backupdir=~/.vim/backup     " directory for backups
+set cindent                     " indenting // don't know the differens
+set clipboard=unnamedplus       " use unix clipboard insted of the vim local clipboard
 set colorcolumn=80,120          " Highlight right margins
 set cpoptions=aABceFsq          " compatibility options, rtfm
-set swapfile                    " swapfiles
 set directory=~/.vim/tmp        " directory for swapfiles
 set expandtab                   " convert tabs to spaces
-set fileformats=unix,dos        " LF all the way, baby
 set fileformat=unix             " ------ '' ------
+set fileformats=unix,dos        " LF all the way, baby
 set history=50                  " remember 50 commands
 set hlsearch                    " highlight search
 set ignorecase                  " case insensitive
@@ -61,14 +67,13 @@ set magic                       " use default escaping of search chars
 set matchpairs=(:),{:},[:],<:>  " matching pairs for use with % (see matchit)
 set matchtime=2                 " tenths of a second to show matching brackets
 set mouse=a                     " enable mouse
+set nobackup                    " don't make backup
+set nocompatible                " Disable vi-compatibility, vim is vi improved for a reason
 set nocopyindent                " follow previous indent level
-" set nocursorcolumn              " highlight current column
-" set nocursorline                " underline the current line
 set noerrorbells                " no noise, please
 set noexrc                      " use local version of .(g)vimrc, .exrc
 set novisualbell                " blink on error
 set nowrap                      " wrap text around
-set nocompatible                " Disable vi-compatibility
 set number                      " line numbers
 set report=0                    " report changes via :...
 set ruler                       " status bar
@@ -84,14 +89,38 @@ set smarttab                    " indenting
 set softtabstop=4               " insert four spaces when I hit tab
 set splitright                  " new split windows appear on the right
 set startofline                 " automatically move cursor to start of line
+set swapfile                    " swapfiles
+set t_Co=256                    " adds 256 color support
 set tabstop=2                   " an actual tab is two spaces
-" set textwidth=79                " generate newline at col 79
 set wildignore=.dll,.o,.obj,.bak,.exe,.pyc,.jpg,.gif,.png,.wmv,.pdf,.avi,.mpg,.divx,.so,.a
 set wildmenu                    " command line completion wild style
 set wildmode=list:longest
 set wildmode=longest:full,full
 set wmh=0                       " window minimum height is 0, rather than 1 line
-set clipboard=unnamedplus       " use unix clipboard insted of the vim local clipboard
+
+" Paste:
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
+" Linebreak:
+set linebreak
+if exists('+breakindent')
+	set breakindent
+	set showbreak=↳
+	set wrap
+endif
+
+" Unused:
+"set backup                      " backup
+"set fillchars=stl:_,stlnc:-,vert:\|,fold:\ ,diff:- something to do with foldable
+"set foldmethod=indent           " make classes and other things folded
+"set foldnestmax=4               " set max folds.
+"set nocursorcolumn              " highlight current column
+"set nocursorline                " underline the current line
+"set t_AB=^[[48;5;%dm            " adds 256 color support   Don't needed
+"set t_AF=^[[38;5;%dm            " adds 256 color support   Don't needed
+"set textwidth=79                " generate newline at col 79
 
 " ============================================================
 " ======================= Costumize ==========================
@@ -111,39 +140,20 @@ map <leader>td <Plug>TaskList
 noremap <Leader>t :noautocmd vimgrep /TODO/j **/*.*<CR>:cw<CR>
 noremap <Leader>fix :noautocmd vimgrep /FIXME/j **/*.*<CR>:cw<CR>
 
-
-" Paste
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
-set showmode
-
-" =============== Standard things ===============
-let g:gruvbox_italix=1
-colorscheme gruvbox
-set background=dark
-"colorscheme jellybeans
-if has('autocmd')
-  filetype plugin indent on
-endif
-if has('syntax') && !exists('g:syntax_on')
-  syntax enable
-endif
-
-set linebreak
-if exists('+breakindent')
-	set breakindent
-	set showbreak=↳
-	set wrap
-endif
-
+" make you save, like if you opened vim with sudo
 cnoremap w!! w !sudo tee > /dev/null %
 
+" Apply rot13 to entrie file, in case you're writing somthing secret :)
+map <F12> mnggVGg?'n
+
+" \h - nohls (Remove sarch hihglights)
+" \H - hls   (set search highlights)
+nmap \h :nohls<Enter>
+nmap \H :set hls <Enter>
 
 " ====================================
 " ============= plugins ==============
 " ====================================
-
-" ======== All  ==========
 
 " NerdTree
 nmap <leader>d :NERDTreeToggle<CR>
@@ -163,10 +173,10 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-x>'
 let g:UltiSnipsListSnippets = '<C-s>'
 "" *}}}
 
-" TagbarToggle
+" TagbarToggle:
 nmap <leader>tg :TagbarToggle<CR>
 
-" Easymotion
+" Easymotion:
 map <Leader><leader>l <Plug>(easymotion-lineforward)
 map <Leader><leader>j <Plug>(easymotion-j)
 map <Leader><leader>k <Plug>(easymotion-k)
@@ -176,6 +186,16 @@ let g:EasyMotion_startofline = 0
 
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
+
+" Airline:
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#hunks#enabled = 1
+
+" ========================================================
+" ================== Filetype Specific ===================
+" ========================================================
 
 " ======== Java ==========
 " java function that only runs on java files.
@@ -250,7 +270,6 @@ autocmd BufNewFile,BufRead *.tex let g:Tex_DefaultTargetFormat='pdf'
 autocmd BufNewFile,BufRead *.tex set iskeyword+=:
 autocmd BufNewFile,BufRead *.tex set sw=2
 autocmd BufRead,BufNewFile *.txt,*.tex set textwidth=80 formatoptions+=t
-
 "" ** tex ** {{{*
 "" ** --- **
 function! TexFileStuff()
@@ -262,12 +281,7 @@ endfunction
 autocmd BufNewFile,BufRead *.tex call TexFileStuff()
 "" *}}}
 
-"" ** mutt ** {{{*
+" =================== mutt ======================
 hi mailSubject ctermfg=yellow guifg=yellow
 au BufNewFile,BufRead /tmp/mutt-* set tw=78 nocindent fileencoding=utf-8
 "autocmd BufRead /tmp/mutt-* execute "normal /^$/+2"
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#bufferline#enabled = 1
-let g:airline#extensions#hunks#enabled = 1
