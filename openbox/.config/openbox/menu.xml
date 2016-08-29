@@ -1,0 +1,149 @@
+<openbox_menu>
+  <menu id="root-menu" label="Openbox 3">
+    <item label="Run Program">
+      <action name="Execute">
+	<command>
+	  dmenu_run
+	</command>
+      </action>
+    </item>
+    <separator/>
+    <item label="Terminal">
+      <action name="Execute">
+	<command>
+	  urxvt
+	</command>
+      </action>
+    </item>
+    <item label="Web Browser">
+      <action name="Execute">
+	<command>
+	  google-chrome-stable
+	</command>
+      </action>
+    </item>
+    <item label="File Manager">
+      <action name="Execute">
+	<command>
+	  nautilus --browser --no-desktop
+	</command>
+      </action>
+    </item>
+    <item label="Text Editor">
+      <action name="Execute">
+	<command>
+	  gvim
+	</command>
+      </action>
+    </item>
+    <item label="Spotify">
+      <action name="Execute">
+	<command>
+	  spotify
+	</command>
+      </action>
+    </item>
+    <item label="Windows remote">
+      <action name="Execute">
+	<command>
+	  /local/bin/windows
+	</command>
+      </action>
+    </item>
+    <separator/>
+    <menu id="graphics" label="Gimp">
+      <item label="KolourPaint">
+	<action name="Execute">
+	  <command>
+	    gimp
+	  </command>
+	</action>
+      </item>
+      <item label="Thumb Image Viewer">
+	<action name="Execute">
+	  <command>
+	    gthumb
+	</action>
+      </item>
+      <item label="mupdf">
+	<action name="Execute">
+	  <command>
+	    mupdf
+	  </command>
+	</action>
+      </item>
+      <item label="Take Screenshot">
+	<action name="Execute">
+	  <command>
+	    gnome-screenshot
+	  </command>
+	</action>
+      </item>
+    </menu>
+    </menu>
+    <menu id="multimedia" label="Multimedia">
+      <item label="Totem">
+	<action name="Execute">
+	  <command>
+	    vlc
+	  </command>
+	</action>
+      </item>
+      <item label="Volume Control">
+	<action name="Execute">
+	  <command>
+	    urxvt -e alsamixer
+	  </command>
+	</action>
+      </item>
+    </menu>
+    <menu id="office" label="Office">
+      <item label="OpenOffice">
+	<action name="Execute">
+	  <command>
+	    libreoffice
+	  </command>
+	</action>
+      </item>
+    </menu>
+    <menu id="programming" label="Programming">
+      <item label="DrScheme">
+	<action name="Execute">
+	  <command>
+	    logisim
+	  </command>
+	</action>
+      </item>
+      <item label="Emacs">
+	<action name="Execute">
+	  <command>
+	    emacs
+	  </command>
+	</action>
+      </item>
+      <item label="Vi IMproved">
+	<action name="Execute">
+	  <command>
+	    vim
+	  </command>
+	</action>
+      </item>
+    </menu>
+    <separator/>
+    <item label="Task Manager">
+      <action name="Execute">
+	<command>
+	  urxvt -bg black -fg white -ls -e htop
+	</command>
+      </action>
+    </item>
+    <separator/>
+    <item label="power off">
+      <action name="Execute">
+	<command>
+	  poweroff
+	</command>
+      </action>
+    </item>
+  </menu>
+</openbox_menu>
