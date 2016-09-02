@@ -3,7 +3,7 @@
     <item label="Run Program">
       <action name="Execute">
 	<command>
-	  gmrun
+	  dmenu_run
 	</command>
       </action>
     </item>
@@ -11,14 +11,14 @@
     <item label="Terminal">
       <action name="Execute">
 	<command>
-	  gnome-terminal
+	  urxvt
 	</command>
       </action>
     </item>
     <item label="Web Browser">
       <action name="Execute">
 	<command>
-	  /snacks/bin/firefox
+	  google-chrome-stable
 	</command>
       </action>
     </item>
@@ -32,14 +32,14 @@
     <item label="Text Editor">
       <action name="Execute">
 	<command>
-	  /snacks/bin/vim
+	  gvim
 	</command>
       </action>
     </item>
-    <item label="Media Player">
+    <item label="Spotify">
       <action name="Execute">
 	<command>
-	  totem
+	  spotify
 	</command>
       </action>
     </item>
@@ -51,11 +51,11 @@
       </action>
     </item>
     <separator/>
-    <menu id="graphics" label="Graphics">
+    <menu id="graphics" label="Gimp">
       <item label="KolourPaint">
 	<action name="Execute">
 	  <command>
-	    kolourpaint
+	    gimp
 	  </command>
 	</action>
       </item>
@@ -63,20 +63,12 @@
 	<action name="Execute">
 	  <command>
 	    gthumb
-	  </command>
 	</action>
       </item>
-      <item label="KColorChooser">
+      <item label="mupdf">
 	<action name="Execute">
 	  <command>
-	    kcolorchooser
-	  </command>
-	</action>
-      </item>
-      <item label="KPdf">
-	<action name="Execute">
-	  <command>
-	    kpdf
+	    mupdf
 	  </command>
 	</action>
       </item>
@@ -88,18 +80,19 @@
 	</action>
       </item>
     </menu>
+    </menu>
     <menu id="multimedia" label="Multimedia">
       <item label="Totem">
 	<action name="Execute">
 	  <command>
-	    totem
+	    vlc
 	  </command>
 	</action>
       </item>
       <item label="Volume Control">
 	<action name="Execute">
 	  <command>
-	    xterm -bg black -fg white -ls -e alsamixer
+	    urxvt -e alsamixer
 	  </command>
 	</action>
       </item>
@@ -108,27 +101,13 @@
       <item label="OpenOffice">
 	<action name="Execute">
 	  <command>
-	    openoffice.org
+	    libreoffice
 	  </command>
 	</action>
       </item>
     </menu>
     <menu id="programming" label="Programming">
       <item label="DrScheme">
-	<action name="Execute">
-	  <command>
-	    drshceme
-	  </command>
-	</action>
-      </item>
-      <item label="Cadence">
-	<action name="Execute">
-	  <command>
-	    cadence
-	  </command>
-	</action>
-      </item>
-      <item label="logisim">
 	<action name="Execute">
 	  <command>
 	    logisim
@@ -138,7 +117,7 @@
       <item label="Emacs">
 	<action name="Execute">
 	  <command>
-	    /snacks/bin/emacs-newest
+	    emacs
 	  </command>
 	</action>
       </item>
@@ -154,15 +133,15 @@
     <item label="Task Manager">
       <action name="Execute">
 	<command>
-	  xterm -bg black -fg white -ls -e htop
+	  urxvt -bg black -fg white -ls -e htop
 	</command>
       </action>
     </item>
     <separator/>
-    <item label="Exit">
+    <item label="power off">
       <action name="Execute">
 	<command>
-	  ifi-exit
+	  poweroff
 	</command>
       </action>
     </item>

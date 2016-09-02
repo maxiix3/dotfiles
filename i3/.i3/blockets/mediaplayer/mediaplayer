@@ -22,7 +22,11 @@
 # (playerctl will attempt to connect to org.mpris.MediaPlayer2.[NAME] on your
 # DBus session).
 
+use Time::HiRes qw(usleep);
 use Env qw(BLOCK_INSTANCE);
+
+use constant DELAY => 50; # Delay in ms to let network-based players (spotify) reflect new data.
+use constant SPOTIFY_STR => 'spotify';
 
 my @metadata = ();
 my $player_arg = "";
@@ -42,14 +46,23 @@ sub buttons {
         } elsif ($ENV{'BLOCK_BUTTON'} == 3) {
             system("mpc next");
         }
-    }
-    else {
+    } elsif ($method eq 'cmus') {
+        if ($ENV{'BLOCK_BUTTON'} == 1) {
+            system("cmus-remote --prev");
+        } elsif ($ENV{'BLOCK_BUTTON'} == 2) {
+            system("cmus-remote --pause");
+        } elsif ($ENV{'BLOCK_BUTTON'} == 3) {
+            system("cmus-remote --next");
+        }
+    } elsif ($method eq 'playerctl') {
         if ($ENV{'BLOCK_BUTTON'} == 1) {
             system("playerctl $player_arg previous");
+            usleep(DELAY * 1000) if $BLOCK_INSTANCE eq SPOTIFY_STR;
         } elsif ($ENV{'BLOCK_BUTTON'} == 2) {
             system("playerctl $player_arg play-pause");
         } elsif ($ENV{'BLOCK_BUTTON'} == 3) {
             system("playerctl $player_arg next");
+            usleep(DELAY * 1000) if $BLOCK_INSTANCE eq SPOTIFY_STR;
         }
     }
 }
@@ -69,7 +82,7 @@ sub cmus {
         }
 
         if (@metadata) {
-            buttons;
+            buttons('cmus');
 
             # metadata found so we are done
             print(join ' - ', @metadata);
@@ -88,25 +101,26 @@ sub mpd {
 }
 
 sub playerctl {
+    buttons('playerctl');
+
     my $artist = qx(playerctl $player_arg metadata artist);
     # exit status will be nonzero when playerctl cannot find your player
-    exit(0) if $?;
-
-    buttons;
+    exit(0) if $? || $artist eq '(null)';
 
     push(@metadata, $artist) if $artist;
 
     my $title = qx(playerctl $player_arg metadata title);
-    exit(0) if $?;
+    exit(0) if $? || $title eq '(null)';
+
     push(@metadata, $title) if $title;
 
     print(join(" - ", @metadata)) if @metadata;
 }
 
-if ($player_arg eq '' or $player_arg eq 'mpd') {
+if ($player_arg eq '' or $player_arg =~ /mpd/) {
     mpd;
 }
-if ($player_arg =~ /cmus$/) {
+if ($player_arg =~ /cmus/) {
     cmus;
 }
 playerctl;
