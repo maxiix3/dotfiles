@@ -138,6 +138,10 @@ alias inf2270='cd ~/Documents/uio/4.semester/inf2270'
 alias inf3400='cd ~/Documents/uio/4.semester/inf3400'
 alias inf1010='cd ~/Documents/uio/2.semester/inf1010'
 alias mat1110='cd ~/Documents/uio/2.semester/mat1110'
+alias inf2220='cd ~/Documents/uio/5.semester/inf2270'
+alias inf3490='cd ~/Documents/uio/5.semester/inf3490'
+alias inf3430='cd ~/Documents/uio/5.semester/inf3430'
+alias inf3470='cd ~/Documents/uio/5.semester/inf3470'
 
 export EDITOR="vim"
 export BROWSER="google-chrome-stable"
