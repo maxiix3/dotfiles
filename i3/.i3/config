@@ -175,12 +175,12 @@ bar {
 # =========================================================
 
 # startup
-exec --no-startup-id nm-applet &
+exec nm-applet &
 exec ~/dotfiles/feh/wallpaper.sh &
 #exec --no-startup-id touchegg
-exec --no-startup-id syndaemon -t -k -i 2 -d
-exec --no-startup-id xss-lock -- /usr/bin/i3lock -f
-exec --no-startup-id redshift-gtk &
+exec syndaemon -t -k -i 2 -d
+exec xss-lock -- /usr/bin/i3lock-fancy
+exec redshift-gtk &
 
 # Personal keybindings for multimedia keys
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5- && amixer -q set Master unmute
@@ -192,7 +192,7 @@ bindsym XF86TouchpadToggle exec ~/.i3/toggletouchpad.sh
 
 # Personal keybindings for opning programs
 bindsym $mod+c exec google-chrome-stable
-bindsym $mod+m exec i3lock --color=151515
+bindsym $mod+m exec i3lock-fancy
 
 # Gap set
 smart_gaps on
