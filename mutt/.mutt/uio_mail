@@ -7,7 +7,8 @@ set sendmail    = "/usr/bin/msmtp -a school"
 #set postponed  = "+School/Utkast"
 
 #password
-source "gpg2 -dq ~/.mutt/.my-pwds.gpg |"
+#source "gpg2 -dq ~/.mutt/.my-pwds.gpg |"
+
 # UiO-ting 
 
 set imap_check_subscribed
