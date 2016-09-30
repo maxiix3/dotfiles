@@ -4,16 +4,15 @@ call vundle#begin()
 
 Plugin 'git://github.com/nvie/vim-flake8.git'
 Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin 'git://github.com/Yggdroot/indentLine.git'
 Plugin 'git://github.com/scrooloose/nerdtree'
 Plugin 'git://github.com/sjl/gundo.vim.git'
 Plugin 'git://github.com/altercation/vim-colors-solarized'
 Plugin 'git://github.com/tpope/vim-vividchalk'
 Plugin 'git://github.com/Lokaltog/vim-distinguished'
-Plugin 'gmarik/Vundle.vim'
 Plugin 'hdima/python-syntax'
 Plugin 'lervag/vim-latex'
-Plugin 'honza/vim-snippets'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'justinmk/vim-syntax-extra'
 Plugin 'bling/vim-airline'
@@ -23,6 +22,8 @@ Plugin 'morhetz/gruvbox'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'haya14busa/vim-easyoperator-line'
 Plugin 'exu/pgsql.vim'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
@@ -144,7 +145,7 @@ noremap <Leader>fix :noautocmd vimgrep /FIXME/j **/*.*<CR>:cw<CR>
 cnoremap w!! w !sudo tee > /dev/null %
 
 " Apply rot13 to entrie file, in case you're writing somthing secret :)
-map <F12> mnggVGg?'n
+map <F11> mnggVGg?'n
 
 " \h - nohls (Remove sarch hihglights)
 " \H - hls   (set search highlights)
@@ -164,17 +165,18 @@ map <leader>g :GundoToggle<CR>
 "" ** UltiSnips ** {{{*
 "" ** --------- **
 "" look for snippets in vim-snippets path
-let g:UltiSnipsSnippetDirectories = ['vim-snippets/UltiSnips']
-let g:UltiSnipsUsePythonVersion = 2
+""let g:UltiSnipsSnippetDirectories = ['vim-snippets/UltiSnips']
+let g:UltiSnipsSnippetDirectories=["~/.vim/bundle/vim-snippets/UltiSnips"]
+let g:UltiSnipsUsePythonVersion = 3
 "" triggers
 let g:UltiSnipsExpandTrigger = '<C-z>'
 let g:UltiSnipsJumpForwardTrigger = '<C-z>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-x>'
-let g:UltiSnipsListSnippets = '<C-s>'
+"let g:UltiSnipsListSnippets = '<C-s>'
 "" *}}}
 
 " TagbarToggle:
-nmap <leader>tg :TagbarToggle<CR>
+"nmap <leader>tg :TagbarToggle<CR>
 
 " Easymotion:
 map <Leader><leader>l <Plug>(easymotion-lineforward)
@@ -197,6 +199,7 @@ let g:airline#extensions#hunks#enabled = 1
 " ================== Filetype Specific ===================
 " ========================================================
 
+let g:EclimCompletionMethod = 'omnifunc'
 " ======== Java ==========
 " java function that only runs on java files.
 " vertical line indentation and running compilator on <F5>
@@ -204,8 +207,10 @@ function! Javafiles()
     let g:indentLine_color_term = 239
     let g:indentLine_color_gui = '#09AA08'
     let g:indentLine_char = '│'
-    nnoremap <buffer> <F5> :w<CR>:!javac %<CR>
-    inoremap <buffer> <F5> <esc>:w<CR>:!javac %<CR>
+    "nnoremap <buffer> <F5> :w<CR>:!javac %<CR>
+    "inoremap <buffer> <F5> <esc>:w<CR>:!javac %<CR>
+    nnoremap <buffer> <F5> :w<CR>:ProjectBuild<CR>
+    inoremap <buffer> <F5> <esc>:w<CR>:ProjectBuild<CR>
 endfunction
 autocmd BufNewFile,BufRead *.java call Javafiles()
 
