@@ -1,4 +1,4 @@
-vim/.vim/backup
-vim/.vim/tmp
+vim/.vim/backup/
+vim/.vim/tmp/
 feh/fehbg
 mutt/.mutt/cache/
