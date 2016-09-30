@@ -125,6 +125,7 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 alias ls='ls -l --color=auto'
 alias logisim='java -jar ~/Documents/logisim-generic-2.7.1.jar &'
 alias sshuio='ssh -YC maximinh@vor.ifi.uio.no'
+alias uioaustur='ssh -YC maximinh@austur.ifi.uio.no'
 alias date='while true; do date; echo -ne "\033[1F"; sleep 1; done'
 alias ORMlite='wine ~/Desktop/ORMlite/ORMlite/ORMlite.exe &'
 alias ormlite='wine ~/Desktop/ORMlite/ORMlite/ORMlite.exe &'
@@ -141,6 +142,10 @@ alias inf2220='cd ~/Documents/uio/5.semester/inf2220'
 alias inf3490='cd ~/Documents/uio/5.semester/inf3490'
 alias inf3430='cd ~/Documents/uio/5.semester/inf3430'
 alias inf3470='cd ~/Documents/uio/5.semester/inf3470'
+alias colemak='setxkbmap us -v colemak'
+alias norsk='setxkbmap no'
+alias eclim='/usr/lib/eclipse/eclimd'
+
 
 export EDITOR="vim"
 export BROWSER="google-chrome-stable"
