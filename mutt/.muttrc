@@ -6,6 +6,7 @@ set sendmail ="/usr/bin/msmtp"
 set realname = "Maximiliano Horta"
 set charset=utf-8
 set send_charset="utf-8:iso-8859-1:us-ascii:"
+set alias_file = "~/.mutt/alias"
 
 #prøver å fixe iso-latin1 æøå feil
 charset-hook US-ASCII     ISO-8859-1
