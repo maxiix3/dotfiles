@@ -199,11 +199,11 @@ let g:airline#extensions#hunks#enabled = 1
 " ================== Filetype Specific ===================
 " ========================================================
 
-let g:EclimCompletionMethod = 'omnifunc'
 " ======== Java ==========
 " java function that only runs on java files.
 " vertical line indentation and running compilator on <F5>
 function! Javafiles()
+    let g:EclimCompletionMethod = 'omnifunc'
     let g:indentLine_color_term = 239
     let g:indentLine_color_gui = '#09AA08'
     let g:indentLine_char = '│'
