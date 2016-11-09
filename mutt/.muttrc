@@ -56,14 +56,16 @@ hdr_order date: from: to: subject: cc: user-agent: x-mailer:
 # set default sorting to threaded
 set sort=threads
 set sort_aux=last-date-received
+set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
+#set display_filter=~/dotfiles/mutt/convertdate.sh
 
 ## Å lese html
+alternative_order text/enriched text/plain text/html 
 auto_view text/html
-#alternative_order text/enriched text/plain text/html 
 #
 ## å se bilder/video
-#auto_view video/*
-#auto_view image/*
+auto_view video/*
+auto_view image/*
 
 #Macros!
 macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
