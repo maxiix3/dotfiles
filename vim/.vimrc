@@ -5,12 +5,12 @@ call vundle#begin()
 Plugin 'git://github.com/nvie/vim-flake8.git'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'git://github.com/Yggdroot/indentLine.git'
-Plugin 'git://github.com/scrooloose/nerdtree'
-Plugin 'git://github.com/sjl/gundo.vim.git'
-Plugin 'git://github.com/altercation/vim-colors-solarized'
-Plugin 'git://github.com/tpope/vim-vividchalk'
-Plugin 'git://github.com/Lokaltog/vim-distinguished'
+Plugin 'Yggdroot/indentLine.git'
+Plugin 'scrooloose/nerdtree'
+Plugin 'sjl/gundo.vim.git'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-vividchalk'
+Plugin 'Lokaltog/vim-distinguished'
 Plugin 'hdima/python-syntax'
 Plugin 'lervag/vim-latex'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
@@ -219,6 +219,8 @@ function! Cfiles()
     let g:indentLine_color_term = 239
     let g:indentLine_color_gui = '#09AA08'
     let g:indentLine_char = '│'
+    let g:ycm_min_num_of_chars_for_completion =2
+    let g:ycm_global_ycm_extra_conf = '~/dotfiles/vim/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
     "nnoremap <buffer> <F5> :w<CR>:!gcc-4.4 -Wall -g %<CR>
     "inoremap <buffer> <F5> <esc>:w<CR>:!gcc-4.4 -Wall -g %<CR>
     nnoremap <buffer> <F5> :w<CR>:!make<CR>
@@ -274,7 +276,7 @@ autocmd BufNewFile,BufRead *.tex let g:tex_flavor='latex'
 autocmd BufNewFile,BufRead *.tex let g:Tex_DefaultTargetFormat='pdf'
 autocmd BufNewFile,BufRead *.tex set iskeyword+=:
 autocmd BufNewFile,BufRead *.tex set sw=2
-autocmd BufRead,BufNewFile *.txt,*.tex set textwidth=80 formatoptions+=t
+autocmd BufRead,BufNewFile *.txt,*.tex set textwidth=78 formatoptions+=t
 "" ** tex ** {{{*
 "" ** --- **
 function! TexFileStuff()
@@ -288,5 +290,6 @@ autocmd BufNewFile,BufRead *.tex call TexFileStuff()
 
 " =================== mutt ======================
 hi mailSubject ctermfg=yellow guifg=yellow
-au BufNewFile,BufRead /tmp/mutt-* set tw=78 nocindent fileencoding=utf-8
+au BufNewFile,BufRead /tmp/mutt-* set tw=72 nocindent fileencoding=utf-8
 "autocmd BufRead /tmp/mutt-* execute "normal /^$/+2"
+autocmd BufnewFile,BufRead mutt* normal \qes
