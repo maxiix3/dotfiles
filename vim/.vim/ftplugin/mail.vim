@@ -7,6 +7,7 @@
 set spell
 set spelllang=nb
 set tw=72
+setlocal fo+=aw
 
 " Tip: Place the cursor in the optimal position, editing email messages.
 " Author: Trondth, based on Davide Alberani
