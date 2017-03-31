@@ -719,6 +719,13 @@ ls_u_1	latex-suite.txt	/*ls_u_1*
 ls_u_2	latex-suite.txt	/*ls_u_2*
 ls_u_3	latex-suite.txt	/*ls_u_3*
 ls_u_4	latex-suite.txt	/*ls_u_4*
+mail	mail.txt	/*mail*
+mail-configuration	mail.txt	/*mail-configuration*
+mail-installation	mail.txt	/*mail-installation*
+mail-terminology	mail.txt	/*mail-terminology*
+mail-usage	mail.txt	/*mail-usage*
+mail.txt	mail.txt	/*mail.txt*
+mail.vim	mail.txt	/*mail.vim*
 math,	latexhelp.txt	/*math,*
 math-misc	latexhelp.txt	/*math-misc*
 math-mode	latexhelp.txt	/*math-mode*
