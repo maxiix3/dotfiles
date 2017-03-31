@@ -131,3 +131,10 @@ SAVEHIST=100
 
 
 source $HOME/.aliases
+
+
+utleie() {
+    sshfs maximinh@austur.ifi.uio.no:pc/Dokumenter/Fakturagrunnlag ~/Documents/RF/utleier/fakturagrunnlag -o reconnect,modules=iconv,from_code=utf8
+    sshfs maximinh@austur.ifi.uio.no:pc/Dokumenter/Ordrebekreftelse ~/Documents/RF/utleier/bekreftelse -o reconnect,modules=iconv,from_code=utf8
+    sshfs maximinh@austur.ifi.uio.no:pc/Dokumenter/Pristilbud ~/Documents/RF/utleier/tilbud -o reconnect,modules=iconv,from_code=utf8
+}
