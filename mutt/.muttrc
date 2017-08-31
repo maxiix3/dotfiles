@@ -22,6 +22,7 @@ charset-hook windows-1256 CP1256
 charset-hook windows-1257 CP1257
 charset-hook windows-1258 CP1258
 
+
 #mapper
 #folder-hook 'gmail' 'source ~/.mutt/gmail_mail'
 #folder-hook 'UiO' 'source ~/.mutt/uio_mail'
@@ -40,10 +41,9 @@ set attribution     = "Hei %v,\n\n%{%A %d. %b %Y} %n wrote:"
 
 # fix bcc to be hidden
 unset write_bcc
-
-set fast_reply=yes
-#set include=yes
-set edit_headers=yes
+set fast_reply
+set include
+set edit_headers
 unset fcc_attach # No attachment in the record 
 
 #----------------------------------------
@@ -56,8 +56,8 @@ hdr_order date: from: to: subject: cc: user-agent: x-mailer:
 
 
 # set default sorting to threaded
-set sort=threads
-set sort_aux=last-date-received
+set sort=threads                        # just like gmail
+set sort_aux=last-date-received         # just like gmail
 set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
 #set display_filter=~/dotfiles/mutt/convertdate.sh
 
@@ -79,7 +79,7 @@ macro pager A ,@aot= "toggle alternative order"
 ## Å lese html
 alternative_order text/enriched text/plain text/html 
 auto_view text/html
-#
+
 ## å se bilder/video
 auto_view video/*
 auto_view image/*
