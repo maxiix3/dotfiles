@@ -145,6 +145,8 @@ bar {
 #    status_command i3status                        #standard i3status
 #    status_command python ~/.i3/i3status_conf.py   #i3 status based on python
     position top
+    mode hide
+    modifier mod4
     workspace_buttons yes
     colors {
 #  separator #268bd2
@@ -184,7 +186,7 @@ exec redshift-gtk &                 # flux (yellow-ish screen at night)
 # Personal keybindings for function keys
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5- && amixer -q set Master unmute
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5+ && amixer -q set Master unmute
-bindsym XF86AudioMute exec $(amixer -q -D pulse sset Master toggle)
+bindsym XF86AudioMute exec $(amixer -q set Master toggle)
 bindsym XF86MonBrightnessDown  exec  xbacklight -dec 5
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86TouchpadToggle exec ~/.i3/toggletouchpad.sh
@@ -211,10 +213,17 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+x exec --no-startup-id i3-dmenu-desktop
 
 # Gap set
-#smart_gaps on
-#smart_borders on
-#for_window [class="^.*"] border pixel 4
-set $default_gaps_inner 1
-set $default_gaps_outer 0
+smart_gaps on
+smart_borders on
+for_window [class="^.*"] border pixel 4
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable 
+for_window [title="pinentry-gtk-2"] floating enable
+set $default_gaps_inner 2
+set $default_gaps_outer 2
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
