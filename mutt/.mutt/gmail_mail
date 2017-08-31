@@ -35,6 +35,7 @@ alias identity_3  Maximiliano Horta     <m.n.horta@mn.uio.no>
 
 set reverse_name # Uses the to mail in replies
 alternates "maximilianohorta94@gmail.com|regiformann@rf.uio.no|m.n.horta@mn.uio.no|maximinh@ifi.uio.no"
+alternates	maximilianohorta94@gmail.com	m.n.horta@mn.uio.no	maximinh@ifi.uio.no
 
 unset record
 unset imap_passive # Allow Mutt to open new imap connection automatically.
@@ -50,18 +51,18 @@ set sort_alias= alias
 set reverse_alias=yes
 
 # Automatic signature and from addr depending on mailinglists
-send-hook   .               'set signature="~/dotfiles/mutt/signaturegmail.txt"'
-reply-hook  .               'set signature="~/dotfiles/mutt/signaturegmail.txt"'
-send-hook   "svada-core"    'set signature="~/dotfiles/mutt/.mutt/sig_core"'
-reply-hook  "svada-core"    'set signature="~/dotfiles/mutt/.mutt/sig_core"'
-send-hook   "regiformann"   'set signature="~/.mutt/sig_regiformann"'
-reply-hook  "regiformann"   'set signature="~/.mutt/sig_regiformann"'
-send-hook   "regi"          'set signature="~/.mutt/sig_regiformann"'
-reply-hook  "regi"          'set signature="~/.mutt/sig_regiformann"'
-send-hook   "mn.uio.no"     'set from="m.n.horta@mn.uio.no"'
-send-hook   "math.uio.no"   'set from="m.n.horta@mn.uio.no"'
-send-hook   .               'set from="maximilianohorta94@gmail.com"'
-send-hook   "termvakt"      'set from="m.n.horta@mn.uio.no"'
+send-hook   .                  'set signature="~/dotfiles/mutt/signaturegmail.txt"'
+reply-hook  .                  'set signature="~/dotfiles/mutt/signaturegmail.txt"'
+send-hook   "svada-core"       'set signature="~/dotfiles/mutt/.mutt/sig_core"'
+reply-hook  "svada-core"       'set signature="~/dotfiles/mutt/.mutt/sig_core"'
+#send-hook   "regiformann"      'set signature="~/.mutt/sig_regiformann"'
+#reply-hook  "regiformann"      'set signature="~/.mutt/sig_regiformann"'
+#send-hook   "regi"             'set signature="~/.mutt/sig_regiformann"'
+#reply-hook  "regi"             'set signature="~/.mutt/sig_regiformann"'
+send-hook   .                  'set from="maximilianohorta94@gmail.com"'
+send-hook   "termvakt"     'set from="m.n.horta@mn.uio.no"''
+send-hook   "mn.uio.no"    'set from="m.n.horta@mn.uio.no"'
+send-hook   "math.uio.no"  'set from="m.n.horta@mn.uio.no"'
 
 
 #---------------------------------------
