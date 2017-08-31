@@ -8,6 +8,7 @@ xset +fp /usr/share/fonts/local
 xset fp rehash
 setxkbmap no
 exec i3
+DEFAULT_SESSION=i3
 
 #gpg-agent
 envfile="$HOME/.gnupg/gpg-agent.env"
