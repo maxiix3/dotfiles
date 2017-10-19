@@ -121,7 +121,7 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 #
 # Example aliases
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export BROWSER="google-chrome-stable"
 
 # Lines configured by zsh-newuser-install
