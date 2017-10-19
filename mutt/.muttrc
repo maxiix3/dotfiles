@@ -36,7 +36,7 @@ bind index "^" imap-fetch-mail
 #----------------------------------------
 # Skrive - svare paa e-post
 
-set editor          = "/usr/bin/vim -c 'set spell spelllang=nb'"
+set editor          = "/usr/bin/nvim -c 'set spell spelllang=nb'"
 set attribution     = "Hei %v,\n\n%{%A %d. %b %Y} %n wrote:"
 
 # fix bcc to be hidden
