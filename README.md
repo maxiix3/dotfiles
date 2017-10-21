@@ -3,6 +3,12 @@ Maxiix3 does Dotfiles
 
 This is my dotfiles from my archsetup, my first linux setup started november 2014 and still updating with different programs ect.
 
+I use gnu stow to manage my dotfiles. To install and make symlinks install stow,
+  enter the dotfiles folder and use the command
+  """
+  stow <foldername>
+  """
+
 Components
 ------------
 
