@@ -7,3 +7,5 @@
     default = simple
 [gui]
 	recentrepo = /home/max/Documents/uio
+[core]
+    editor = nvim
