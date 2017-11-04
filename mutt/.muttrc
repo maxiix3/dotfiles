@@ -1,6 +1,7 @@
 #Farger 
 source ~/.mutt/colors
 source ~/.mutt/settings
+source ~/.mutt/vim-keys.rc
 
 #set sendmail ="/usr/bin/msmtp"
 set realname = "Maximiliano Horta"

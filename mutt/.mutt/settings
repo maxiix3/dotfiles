@@ -38,11 +38,7 @@ set markers = no              # no ugly plus signs
 # Pager Key Bindings ---------------------------------
 bind pager k  previous-line
 bind pager j  next-line
-bind pager gg top
-bind pager G  bottom
 bind pager R        group-reply
 
 # Index Key Bindings ---------------------------------
-bind index gg       first-entry
-bind index G        last-entry
 bind index R        group-reply
