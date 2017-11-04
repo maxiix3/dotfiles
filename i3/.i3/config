@@ -175,8 +175,8 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 # =========================================================
 
 # startup
-exec nm-applet &                    # networkmanager (WiFi)
-exec blueman-applet &               # bluetooth
+exec --no-startup-id nm-applet &                    # networkmanager (WiFi)
+exec --no-startup-id blueman-applet &               # bluetooth
 exec ~/dotfiles/feh/wallpaper.sh &  # Background
 #exec --no-startup-id touchegg       # for touchscreen
 exec syndaemon -t -k -i 2 -d        # stops the mouse when typing
@@ -186,7 +186,7 @@ exec redshift-gtk &                 # flux (yellow-ish screen at night)
 # Personal keybindings for function keys
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5- && amixer -q set Master unmute
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5+ && amixer -q set Master unmute
-bindsym XF86AudioMute exec $(amixer -q set Master toggle)
+bindsym XF86AudioMute exec $(amixer -q set Master toggle && amixer -q set Speaker unmute && amixer -q set Headphone toggle)
 bindsym XF86MonBrightnessDown  exec  xbacklight -dec 5
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 bindsym XF86TouchpadToggle exec ~/.i3/toggletouchpad.sh
