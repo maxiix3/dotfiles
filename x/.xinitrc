@@ -4,11 +4,12 @@ xrdb -merge ~/.Xresources
 # hides the mouse when not used
 unclutter &
 
+setxkbmap no
 xset +fp /usr/share/fonts/local
 xset fp rehash
-setxkbmap no
 exec i3
 DEFAULT_SESSION=i3
+xset s 120 150
 
 #gpg-agent
 envfile="$HOME/.gnupg/gpg-agent.env"
