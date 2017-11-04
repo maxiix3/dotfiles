@@ -36,7 +36,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 #POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 #POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv status time)
 
 # setting context to only show user@host when not max@arch-laptop
 export DEFAULT_USER=max
@@ -138,3 +138,5 @@ utleie() {
     sshfs maximinh@austur.ifi.uio.no:pc/Dokumenter/Ordrebekreftelse ~/Documents/RF/utleier/bekreftelse -o reconnect,modules=iconv,from_code=utf8
     sshfs maximinh@austur.ifi.uio.no:pc/Dokumenter/Pristilbud ~/Documents/RF/utleier/tilbud -o reconnect,modules=iconv,from_code=utf8
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
