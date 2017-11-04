@@ -3,8 +3,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'git://github.com/nvie/vim-flake8.git'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 Plugin 'Yggdroot/indentLine.git'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim.git'
@@ -23,7 +21,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'haya14busa/vim-easyoperator-line'
 Plugin 'exu/pgsql.vim'
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 
@@ -220,7 +219,6 @@ function! Cfiles()
     let g:indentLine_color_gui = '#09AA08'
     let g:indentLine_char = '│'
     let g:ycm_min_num_of_chars_for_completion =2
-    let g:ycm_global_ycm_extra_conf = '~/dotfiles/vim/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
     "nnoremap <buffer> <F5> :w<CR>:!gcc-4.4 -Wall -g %<CR>
     "inoremap <buffer> <F5> <esc>:w<CR>:!gcc-4.4 -Wall -g %<CR>
     nnoremap <buffer> <F5> :w<CR>:!make<CR>
@@ -236,18 +234,19 @@ function! Pythonfiles()
     " highlight everything!
     let g:python_highlight_all = 1
     " set python 2 syntax default
-    let g:python_version_2 = 1
+    "let g:python_version_2 = 1
     " Python quickfix - pyflakes
     let g:pyflakes_use_quickfix = 0
     set syntax=python
+    let g:ycm_python_binary_path = 'python'
 
     " pep8 checker, Flake8 <F8>
     let g:pep8_map='<F8>'
-    nnoremap <buffer> <F12> :w<CR>:!python2 % >> % <CR>
-    inoremap <buffer> <F12> <esc>:w<CR>:!python2 % >> %<CR>
+    nnoremap <buffer> <F12> :w<CR>:!python % >> % <CR>
+    inoremap <buffer> <F12> <esc>:w<CR>:!python % >> %<CR>
 
-    nnoremap <buffer> <F5> :w<CR>:!python2 %<CR>
-    inoremap <buffer> <F5> <esc>:w<CR>:!python2 %<CR>
+    nnoremap <buffer> <F5> :w<CR>:!python %<CR>
+    inoremap <buffer> <F5> <esc>:w<CR>:!python %<CR>
 
 
     let g:indentLine_color_term = 239
@@ -284,12 +283,14 @@ function! TexFileStuff()
     setlocal filetype=tex
     nnoremap <buffer> <F8> :w<CR>:!pdflatex %<CR>
     inoremap <buffer> <F8> <esc>:w<CR>:!pdflatex %<CR>
+    nnoremap <buffer> <F9> :w<CR>:!pdflatex --shell-escape %<CR>
+    inoremap <buffer> <F9> <esc>:w<CR>:!pdflatex --shell-escape %<CR>
 endfunction
 autocmd BufNewFile,BufRead *.tex call TexFileStuff()
 "" *}}}
 
 " =================== mutt ======================
 hi mailSubject ctermfg=yellow guifg=yellow
-au BufNewFile,BufRead /tmp/mutt-* set tw=72 nocindent fileencoding=utf-8
+au BufNewFile,BufRead /tmp/mutt-* set tw=72 nocindent fileencoding=utf-8 filetype mail
 "autocmd BufRead /tmp/mutt-* execute "normal /^$/+2"
-autocmd BufnewFile,BufRead mutt* normal \qes
+"autocmd BufnewFile,BufRead mutt* normal \qes
