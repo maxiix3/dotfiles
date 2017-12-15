@@ -85,7 +85,7 @@ bindsym $mod+5 workspace 5 www
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
+bindsym $mod+9 workspace 9 slack
 bindsym $mod+0 workspace 10 spotify
 
 # move focused container to workspace
@@ -97,7 +97,7 @@ bindsym $mod+Shift+5 move container to workspace 5 www
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+9 move container to workspace 9 slack
 bindsym $mod+Shift+0 move container to workspace 10 spotify
 
 # reload the configuration file
@@ -183,6 +183,20 @@ exec syndaemon -t -k -i 2 -d        # stops the mouse when typing
 exec xss-lock -- /usr/bin/i3lock -f # autolock
 exec redshift-gtk &                 # flux (yellow-ish screen at night)
 
+
+set $w9 workspace 9 slack
+set $w10 workspace 10 spotify
+# application rules
+        # slack
+                assign [class="slack(.*)?|Slack(.*)?"] $w9
+                for_window [title="Slack(.*)?"] move container to workspace 9 slack
+        # spotify
+                assign [class="Spotify"] $w10
+                for_window [title="Spotify"] move container to workspace 10 spotify
+# Autostart in specific workspace
+exec i3-msg 'workspace 9 slack; exec slack'
+exec i3-msg 'workspace 10 spotify; exec spotify'
+
 # Personal keybindings for function keys
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5- && amixer -q set Master unmute
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5+ && amixer -q set Master unmute
@@ -193,7 +207,7 @@ bindsym XF86TouchpadToggle exec ~/.i3/toggletouchpad.sh
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-bindsym Print exec $(scrot '%d%m%y-%H%M.png' -e 'mv $f ~/Pictures/screenshots/')
+bindsym Print exec $(scrot '%y%m%d-%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/')
 
 
 bindsym mod1+F9     exec  xbacklight -dec 10
@@ -210,7 +224,9 @@ bindsym $mod+Return exec i3-sensible-terminal
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+x exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+x exec --no-startup-id i3-dmenu-desktop
+# A faster dmenu.
+bindsym $mod+x exec --no-startup-id j4-dmenu-desktop
 
 # Gap set
 smart_gaps on

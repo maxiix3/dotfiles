@@ -6,7 +6,7 @@
 
 set spell
 set spelllang=nb
-set tw=72
+set tw=79
 setlocal fo+=aw
 
 " Tip: Place the cursor in the optimal position, editing email messages.
