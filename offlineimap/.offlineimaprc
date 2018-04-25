@@ -1,0 +1,33 @@
+[general]
+ui = ttyui
+accounts = Personal,School
+
+[Account Personal]
+localrepository = Personal-Local
+remoterepository = Personal-Remote
+
+[Account School]
+localrepository = School-Local
+remoterepository = School-Remote
+
+[Repository Personal-Local]
+type = Maildir
+localfolders = ~/Mail/Personal
+
+[Repository School-Local]
+type = Maildir
+localfolders = ~/Mail/School
+
+[Repository Personal-Remote]
+type = Gmail
+remoteuser = maximilianohorta94@gmail.com
+remotepass = secret
+realdelete = no
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Repository School-Remote]
+type = Imap
+remoteuser = work-username@gmail.com
+remotepass = secret
+realdelete = no
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
