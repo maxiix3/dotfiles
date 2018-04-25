@@ -1,0 +1,44 @@
+#Zathurarc file
+
+set default-bg                  "#1B2B34"
+set default-fg                  "#343D46"
+
+set statusbar-fg                "#A7ADBA"
+set statusbar-bg                "#343D46"
+
+set inputbar-bg                 "#1B2B34"
+set inputbar-fg                 "#4F5B66"
+
+set notification-error-bg       "#EC5f67"
+set notification-error-fg       "#1B2B34"
+
+set notification-warning-bg     "#EC5f67"
+set notification-warning-fg     "#1B2B34"
+
+set highlight-color             "#FAC863"
+set highlight-active-color      "#6699CC"
+
+set completion-highlight-fg     "#4F5B66"
+set completion-highlight-bg     "#5FB3B3"
+
+set completion-bg               "#4F5B66"
+set completion-fg               "#5FB3B3"
+
+set notification-bg             "#99C794"
+set notification-fg             "#1B2B34"
+
+set recolor-lightcolor          "#1B2B34"
+set recolor-darkcolor           "#CDD3DE"
+
+
+# key bindings
+map w adjust_window width
+map z adjust_window bestfit
+map <M-f> toggle_fullscreen 0 all
+map <C-p> print
+map q quit
+
+# copy selection to system clipboard
+set selection-clipboard clipboard
+# enable incremental search
+set incremental-search true
