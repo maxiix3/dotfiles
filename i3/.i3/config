@@ -163,10 +163,17 @@ bar {
 
 # Not used because of i3gaps
 # class                 border  backgr. text    indicator child_border
-client.focused          #0a4c5c #073642 #ffffff #2e9ef4   #073642
+#client.focused          #0a4c5c #073642 #ffffff #2e9ef4   #33b9ff
+client.focused          #0a4c5c #073642 #ffffff #33b9ff   #2e9ef4
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #262626 #121212 #888888 #292d2e   #121212
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
+
+
+#client.focused          #d75d87 #d75f87 #181818 #d75fd7   
+#client.focused_inactive #333333 #5f676a #ffffff #484e50   
+#client.unfocused        #262626 #121212 #888888 #292d2e   
+#client.urgent           #2f343a #900000 #ffffff #900000   
 
 # =========================================================
 # =========================================================
@@ -176,7 +183,7 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 
 # startup
 exec --no-startup-id nm-applet &                    # networkmanager (WiFi)
-exec --no-startup-id blueman-applet &               # bluetooth
+#exec --no-startup-id blueman-applet &               # bluetooth
 exec ~/dotfiles/feh/wallpaper.sh &  # Background
 #exec --no-startup-id touchegg       # for touchscreen
 exec syndaemon -t -k -i 2 -d        # stops the mouse when typing
@@ -239,7 +246,7 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable 
 for_window [title="pinentry-gtk-2"] floating enable
-set $default_gaps_inner 2
+set $default_gaps_inner 4
 set $default_gaps_outer 2
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
