@@ -1,3 +1,4 @@
+export TERM="xterm-256color"
 # added fortune and ponysay to the top of my shell on startup
 #/usr/bin/fortune -a | /usr/bin/ponysay
 # added latest news from aftenposten on shell startup
