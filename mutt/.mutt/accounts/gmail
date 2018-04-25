@@ -1,0 +1,63 @@
+# vim: ft=muttrc
+set from          = "maximilianohorta94@gmail.com"
+set sendmail      = "/usr/bin/msmtp -a gmail"
+set mbox          = "+gmail/archive"
+set postponed     = "+gmail/drafts"
+
+macro index ,c "<change-folder>+uio/INBOX<enter>" "change accounts"
+macro index ,z "<shell-escape>mbsync gmail-inbox<enter>" "sync IMAP"
+macro index D "<save-message>+gmail/trash<enter>" "move message to the trash"
+macro index S "<save-message>+gmail/spam<enter>"  "mark message as spam"
+
+set display_filter      = '~/.mutt/alias.sh'
+set alias_file          = '~/.mutt/aliases
+set sort_alias= alias
+set reverse_alias=yes
+set query_command="goobook query %s"
+
+# Automatic signature and from addr depending on mailinglists
+send-hook   .                  'set signature="~/dotfiles/mutt/signaturegmail.txt"'
+reply-hook  .                  'set signature="~/dotfiles/mutt/signaturegmail.txt"'
+send-hook   "svada-core"       'set signature="~/dotfiles/mutt/.mutt/sig_core"'
+reply-hook  "svada-core"       'set signature="~/dotfiles/mutt/.mutt/sig_core"'
+#send-hook   .                  'set from="maximilianohorta94@gmail.com"'
+#send-hook   "termvakt"         'set from="m.n.horta@mn.uio.no"''
+#send-hook   "mn.uio.no"        'set from="m.n.horta@mn.uio.no"'
+#send-hook   "math.uio.no"      'set from="m.n.horta@mn.uio.no"'
+
+# Alias
+alias identity_1  Maximiliano Horta     <maximilianohorta94@gmail.com> 
+alias identity_2  Maximiliano Horta     <m.n.horta@mn.uio.no>
+
+set reverse_name # Uses the to mail in replies
+alternates "maximilianohorta94@gmail.com|m.n.horta@mn.uio.no|maximinh@*uio.no"
+alternates	maximilianohorta94@gmail.com	m.n.horta@mn.uio.no	maximinh@*.uio.no
+
+#---------------------------------------
+# Makroer
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
+bind editor <\ct> complete-query
+macro index,pager y "<save-message>=gmail/All <enter><enter>" "Archive"
+macro index gi "<change-folder>+gmail/INBOX<enter>" "Go to inbox"
+macro index gb "<change-folder>=gmail/BMP<enter>" "Go to BMP"
+
+#macro index,pager,compose <f9> '<enter-command>set sendmail = "/usr/bin/msmtp -a regi"'
+#macro index,pager,compose <f8> '<enter-command>set sendmail = "/usr/bin/msmtp -a personal"'
+macro compose v "<edit-from>^Uidentity_<tab>" "Select from" 
+
+# Adresseboka til UiO
+#set query_command = "perl ~/dotfiles/mutt/mutt-ldap.pl '%s'"
+#bind editor "\t" complete-query
+source $alias_file
+
+macro index ,u "\
+  <enter-command>set \
+    my_old_pipe_decode=\$pipe_decode \
+    nopipe_decode \
+  <enter>\
+  <pipe-message>ghu<enter>\
+  <delete-thread>\
+  <enter-command>set \
+    pipe_decode=\$my_old_pipe_decode \
+  <enter>" \
+  "Unsubscribe from any email with a List-Unsubscribe header"

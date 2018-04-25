@@ -23,7 +23,7 @@ mailboxes =
 #set realname = "Maximiliano Horta" 
 #mailboxes = =spam
 
-set from="Maximiliano Horta <maximinh@student.matnat.uio.no>"
+set from="Maximiliano Horta <m.n.horta@mn.uio.no>
 set imap_user=maximinh
 set imap_pass=$my_pw_school
 #

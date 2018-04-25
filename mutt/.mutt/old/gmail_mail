@@ -5,33 +5,32 @@ unset imap_pass
 source "gpg2 -dq ~/.mutt/.gmail_pwds.gpg |"
 
 # ========= OLD ============
-#set smtp_url = "smtp://maximilianohorta94@smtp.gmail.com:587/"
-#set smtp_pass =$my_pw_password # used with multiple accounts
-#set from = "maximilianohorta94@gmail.com"
-#set use_from = yes
-#set realname = "Maximiliano Horta"
-#set mbox        = "+Personal/[Gmail].All\ e-post"
-#set postponed   = "+Personal/[Gmail].Utkast"
-#set sendmail    = "/usr/bin/msmtp -a personal"
-#set record = "+[Google Mail]/Sent Mail"
+#set smtp_url       = "smtp://maximilianohorta94@smtp.gmail.com:587/"
+#set smtp_pass      = $my_pw_password # used with multiple accounts
+#set from           = "maximilianohorta94@gmail.com"
+#set use_from       = yes
+#set realname       = "Maximiliano Horta"
+#set mbox           = "+Personal/[Gmail].All\ e-post"
+#set postponed      = "+Personal/[Gmail].Utkast"
+#set sendmail       = "/usr/bin/msmtp -a personal"
+#set record         = "+[Google Mail]/Sent Mail"
 
 
 # ========= General ==========
-set from        = "maximilianohorta94@gmail.com"
-set imap_user = "maximilianohorta94@gmail.com"
-set imap_pass =$my_pw_password
-set smtp_url = "smtp://maximilianohorta94@smtp.gmail.com:587/"
-set smtp_pass =$my_pw_password
-set folder = "imaps://imap.gmail.com:993"
-set spoolfile = "+INBOX"
+set from            = "maximilianohorta94@gmail.com"
+set imap_user       = "maximilianohorta94@gmail.com"
+set imap_pass       = $my_pw_password
+set smtp_url        = "smtp://maximilianohorta94@smtp.gmail.com:587/"
+set smtp_pass       = $my_pw_password
+set folder          = "imaps://imap.gmail.com:993"
+set spoolfile       = "+INBOX"
 set imap_check_subscribed
-set postponed="=[Gmail]/Drafts"
-set trash = "=[Gmail]/Trash"
+set postponed       = "=[Gmail]/Drafts"
+set trash           = "=[Gmail]/Trash"
 
 # Alias
 alias identity_1  Maximiliano Horta     <maximilianohorta94@gmail.com> 
-alias identity_2  Maximiliano Horta     <regiformann@rf.uio.no> 
-alias identity_3  Maximiliano Horta     <m.n.horta@mn.uio.no>
+alias identity_2  Maximiliano Horta     <m.n.horta@mn.uio.no>
 
 set reverse_name # Uses the to mail in replies
 alternates "maximilianohorta94@gmail.com|regiformann@rf.uio.no|m.n.horta@mn.uio.no|maximinh@ifi.uio.no"
@@ -55,10 +54,6 @@ send-hook   .                  'set signature="~/dotfiles/mutt/signaturegmail.tx
 reply-hook  .                  'set signature="~/dotfiles/mutt/signaturegmail.txt"'
 send-hook   "svada-core"       'set signature="~/dotfiles/mutt/.mutt/sig_core"'
 reply-hook  "svada-core"       'set signature="~/dotfiles/mutt/.mutt/sig_core"'
-#send-hook   "regiformann"      'set signature="~/.mutt/sig_regiformann"'
-#reply-hook  "regiformann"      'set signature="~/.mutt/sig_regiformann"'
-#send-hook   "regi"             'set signature="~/.mutt/sig_regiformann"'
-#reply-hook  "regi"             'set signature="~/.mutt/sig_regiformann"'
 send-hook   .                  'set from="maximilianohorta94@gmail.com"'
 send-hook   "termvakt"     'set from="m.n.horta@mn.uio.no"''
 send-hook   "mn.uio.no"    'set from="m.n.horta@mn.uio.no"'

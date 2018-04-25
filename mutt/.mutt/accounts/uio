@@ -1,0 +1,21 @@
+# vim: ft=muttrc
+#
+set from        = "Maximiliano Horta <m.n.horta@mn.uio.no>"
+set sendmail    = "/usr/bin/msmtp -a uio"
+set mbox        = "+uio/archive"
+set postponed   = "+uio/drafts"
+
+#password
+#source "gpg2 -dq ~/.mutt/.my-pwds.gpg |"
+
+
+set signature = ~/dotfiles/mutt/signatureuio.txt
+# Adresseboka til UiO
+set query_command = "perl ~/dotfiles/mutt/mutt-ldap.pl '%s'"
+bind editor "\t" complete-query
+
+
+macro index ,c "<change-folder>+gmail/INBOX<enter>" "change accounts"
+macro index ,z "<shell-escape>mbsync --pull-new uio-inbox<enter>" "sync IMAP"
+macro index D "<save-message>+uio/Deleted\ <enter>" "move message to the trash"
+macro index S "<save-message>+uio/spam<enter>"  "mark message as spam"
