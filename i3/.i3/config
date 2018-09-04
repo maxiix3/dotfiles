@@ -183,8 +183,9 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 
 # startup
 exec --no-startup-id nm-applet &                    # networkmanager (WiFi)
-#exec --no-startup-id blueman-applet &               # bluetooth
+exec --no-startup-id blueman-applet &               # bluetooth
 exec ~/dotfiles/feh/wallpaper.sh &  # Background
+#exec feh --bg-scale ~/Pictures/wallpaper_old/wallhaven-204834.jpg
 #exec --no-startup-id touchegg       # for touchscreen
 exec syndaemon -t -k -i 2 -d        # stops the mouse when typing
 exec xss-lock -- /usr/bin/i3lock -f # autolock
@@ -196,7 +197,7 @@ set $w10 workspace 10 spotify
 # application rules
         # slack
                 assign [class="slack(.*)?|Slack(.*)?"] $w9
-                for_window [title="Slack(.*)?"] move container to workspace 9 slack
+                for_window [class="Slack(.*)?"] move container to workspace 9 slack
         # spotify
                 assign [class="Spotify"] $w10
                 for_window [title="Spotify"] move container to workspace 10 spotify
