@@ -184,12 +184,12 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 # startup
 exec --no-startup-id nm-applet &                    # networkmanager (WiFi)
 exec --no-startup-id blueman-applet &               # bluetooth
-exec ~/dotfiles/feh/wallpaper.sh &  # Background
-#exec feh --bg-scale ~/Pictures/wallpaper_old/wallhaven-204834.jpg
-#exec --no-startup-id touchegg       # for touchscreen
-exec syndaemon -t -k -i 2 -d        # stops the mouse when typing
-exec xss-lock -- /usr/bin/i3lock -f # autolock
-exec redshift-gtk &                 # flux (yellow-ish screen at night)
+#exec ~/dotfiles/feh/wallpaper.sh &                 # Background
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpaper/wallhaven-380524.jpg
+#exec --no-startup-id touchegg                      # for touchscreen
+exec --no-startup-id syndaemon -t -k -i 2 -d        # stops the mouse when typing
+exec --no-startup-id xss-lock -- /usr/bin/i3lock -f # autolock
+exec --no-startup-id redshift-gtk                   # flux (yellow-ish screen at night)
 
 
 set $w9 workspace 9 slack
@@ -200,7 +200,7 @@ set $w10 workspace 10 spotify
                 for_window [class="Slack(.*)?"] move container to workspace 9 slack
         # spotify
                 assign [class="Spotify"] $w10
-                for_window [title="Spotify"] move container to workspace 10 spotify
+                for_window [class="Spotify"] move container to workspace 10 spotify
 # Autostart in specific workspace
 exec i3-msg 'workspace 9 slack; exec slack'
 exec i3-msg 'workspace 10 spotify; exec spotify'
@@ -209,8 +209,8 @@ exec i3-msg 'workspace 10 spotify; exec spotify'
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5- && amixer -q set Master unmute
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5+ && amixer -q set Master unmute
 bindsym XF86AudioMute exec $(amixer -q set Master toggle && amixer -q set Speaker unmute && amixer -q set Headphone toggle)
-bindsym XF86MonBrightnessDown  exec  xbacklight -dec 5
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown  exec light -U 5
+bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86TouchpadToggle exec ~/.i3/toggletouchpad.sh
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
@@ -218,8 +218,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym Print exec $(scrot '%y%m%d-%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/')
 
 
-bindsym mod1+F9     exec  xbacklight -dec 10
-bindsym mod1+F10    exec xbacklight -inc 10
+bindsym mod1+F9     exec light -U 5
+bindsym mod1+F10    exec light -A 5
 
 # ===== Personal keybindings for opning programs ====
 bindsym $mod+c exec google-chrome-stable

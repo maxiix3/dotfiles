@@ -22,7 +22,7 @@ separator_block_width=14
 #command=~/.i3/blockets/i3blocks-crypto/crypto
 
 [mediaplayer]
-command=~/.i3/blockets/mediaplayer/mediaplayer
+command=~/.config/i3blocks/blockets/mediaplayer/mediaplayer
 instance=spotify
 interval=5
 signal=10
@@ -41,14 +41,14 @@ color=#7663FF
 ##color=#e97ac8
 
 [email]
-command=~/.i3/blockets/i3blocks-contrib/email/email
+command=~/.config/i3blocks/blockets/i3blocks-contrib/email/email
 instance=gmail
 interval=300
 label=Gmail:
 #min_width=gmail: 99
 
 [email]
-command=~/.i3/blockets/i3blocks-contrib/email/email
+command=~/.config/i3blocks/blockets/i3blocks-contrib/email/email
 instance=uio
 interval=300
 label=UiO: 
@@ -69,14 +69,14 @@ interval=60
 
 [ssid]
 label=
-command=echo "$(iw dev wlp1s0 link | grep SSID | cut -d " " -f 2-)"
+command=echo "$(iw dev wlp59s0 link | grep SSID | cut -d " " -f 2-)"
 color=#00FF00
 interval=10
 markup=pongo
 separator=false
 
 [wifi]
-instance=wlp1s0
+instance=wlp59s0
 command=/usr/lib/i3blocks/wifi
 color=#00FF00
 interval=30
@@ -87,8 +87,8 @@ interval=30
 #command=/usr/lib/i3blocks/battery
 #interval=30
 
-[battery2]
-command=~/.i3/blockets/i3blocks-contrib/battery2/battery2
+[battery]
+command=~/.config/i3blocks/blockets/i3blocks-contrib/battery2/battery2
 markup=pango
 interval=30
 
@@ -106,7 +106,7 @@ color=#6c71c4
 
 [temp]
 label=
-command=echo "$(sensors coretemp-isa-0000 | awk '/Physical/ {print $4}')"
+command=echo "$(sensors coretemp-isa-0000 | awk '/Package/ {print $4}')"
 interval=10
 color=#b58900
 
