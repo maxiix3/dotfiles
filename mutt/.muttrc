@@ -30,6 +30,8 @@ unset write_bcc
 unset fcc_attach # No attachment in the record 
   set mail_check_stats
 
+mailboxes =gmail/[Gmail]/Sent\ Mail
+mailboxes =gmail/[Gmail]/All\ Mail
 mailboxes =gmail/Accounts
 mailboxes =gmail/&APg-konomi
 mailboxes =gmail/BMP
