@@ -1,12 +1,12 @@
 ! scrollbar style - rxvt(default), plain (most compact), next, or xterm
 URxvt.scrollstyle:          rxvt
-!URxvt.letterSpace:          -1
+URxvt.letterSpace:          -1
 URxvt*scrollBar:            false
 URxvt*termName:             rxvt-256color
 URxvt*TERM:                 xterm-256color
 URxvt.urgentOnBell:         True
 Xterm*utf8:                 2
-!URxvt.depth:                0
+URxvt.depth:                0
 
 ! -- copy/paste --!
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
