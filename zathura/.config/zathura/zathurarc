@@ -1,4 +1,6 @@
 #Zathurarc file
+set dbus-service true
+set synctex true
 
 set default-bg                  "#1B2B34"
 set default-fg                  "#343D46"
