@@ -38,6 +38,9 @@ alias inf4331='cd ~/Documents/uio/7.semester/inf4331'
 alias in1020='cd ~/Documents/uio/7.semester/in1020'
 alias unik4270='cd ~/Documents/uio/7.semester/unik4270'
 alias inf3470='cd ~/Documents/uio/7.semester/inf3470'
+alias in5170='cd ~/Documents/uio/9.semester/IN5170'
+alias in5020='cd ~/Documents/uio/9.semester/IN5020'
+alias tek5510='cd ~/Documents/uio/9.semester/TEK5510'
 alias qemu-mininet='qemu-system-x86_64 -hda ~/Downloads/mininet-vm-x86_64.qcow2 -enable-kvm -m 1024 -net nic -net user,hostfwd=::9001-:22'
 alias pull-all='~/git/update-git.sh'
 
@@ -49,3 +52,6 @@ alias vimrc='cd ~/.config/nvim/'
 
 alias regiweb='mount /mnt/regiweb && cd /mnt/regiweb' 
 alias USB='mount /mnt/usbflash && cd /mnt/usbflash' 
+alias orphans='pacman -Qtdq'
+
+alias pdf2remarkable='~/git/reMarkableScripts/pdf2remarkable.sh'
