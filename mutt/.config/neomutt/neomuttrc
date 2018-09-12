@@ -1,0 +1,137 @@
+#Farger 
+source ~/.mutt/colors
+source ~/.mutt/settings
+source ~/.mutt/bindings
+source ~/.mutt/hooks
+
+  set realname            = "Maximiliano Horta"
+  set charset             = utf-8
+  set text_flowed
+  set send_charset        = "utf-8:iso-8859-1:us-ascii:"
+  set alias_file          = "~/.mutt/aliases"
+  set folder              = ~/mail
+  set spoolfile           = "+gmail/INBOX"
+  set header_cache        = ~/.mutt/cache
+  set mail_check          = 0
+  set mime_forward        = ask-no
+  set mbox_type           = maildir
+  set reply_to
+  set reverse_name
+  set sort=threads                        # just like gmail
+  set sort_aux=last-date-received         # just like gmail
+  set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
+  #set display_filter=~/dotfiles/mutt/convertdate.sh
+  set editor          = "/usr/bin/nvim -c 'set spell spelllang=nb'"
+  set attribution     = "Hei %v,\n\n%{%A %d. %b %Y} %n wrote:"
+unset write_bcc
+  set fast_reply
+  set include
+  set edit_headers
+unset fcc_attach # No attachment in the record 
+  set mail_check_stats
+
+mailboxes =gmail/Accounts
+mailboxes =gmail/&APg-konomi
+mailboxes =gmail/BMP
+mailboxes =gmail/Forsvaret\ \&-\ HV
+mailboxes =gmail/INBOX
+mailboxes =gmail/Pistol
+mailboxes =gmail/UIO
+mailboxes =gmail/UIO/RF
+mailboxes =gmail/UIO/RF/&APg-konomi
+mailboxes =gmail/UIO/RF/arr
+mailboxes =gmail/UIO/RF/bar
+mailboxes =gmail/UIO/RF/core-wannabe
+mailboxes =gmail/UIO/RF/cosa-nostra
+mailboxes =gmail/UIO/RF/Diskusjon
+mailboxes =gmail/UIO/RF/Gilde
+mailboxes =gmail/UIO/RF/Gjenglemt
+mailboxes =gmail/UIO/RF/HS
+mailboxes =gmail/UIO/RF/KS
+mailboxes =gmail/UIO/RF/MoneyMaker
+mailboxes =gmail/UIO/RF/Regi
+mailboxes =gmail/UIO/RF/Regi-&APg-konomi
+mailboxes =gmail/UIO/RF/Registyret
+mailboxes =gmail/UIO/RF/Styret
+mailboxes =gmail/UIO/RF/TLC
+mailboxes =gmail/UIO/spf-styret
+mailboxes =uio/Deleted\ Items
+mailboxes =uio/Drafts
+mailboxes =uio/INBOX
+mailboxes =uio/INBOX/slack
+mailboxes =uio/INBOX/skannede\ dokumenter
+mailboxes =uio/INBOX/Personlig
+mailboxes =uio/INBOX/Student-IT
+mailboxes =uio/INBOX/Student-IT/lk-alle
+mailboxes =uio/INBOX/StudentOrganisasjoner
+mailboxes =uio/INBOX/StudentOrganisasjoner/dagen@ifi
+mailboxes =uio/INBOX/StudentOrganisasjoner/Realistforeningen
+mailboxes =uio/INBOX/StudentOrganisasjoner/TG
+mailboxes =uio/INBOX/studie
+mailboxes =uio/INBOX/studie/Piazza
+mailboxes =uio/INBOX/studie/Devilry
+mailboxes =uio/Junk\ Email
+mailboxes =uio/Outbox
+mailboxes =uio/Sent\ Items
+
+#prøver å fixe iso-latin1 æøå feil
+charset-hook US-ASCII     ISO-8859-1
+charset-hook x-unknown    ISO-8859-1
+charset-hook windows-1250 CP1250
+charset-hook windows-1251 CP1251
+charset-hook windows-1252 CP1252
+charset-hook windows-1253 CP1253
+charset-hook windows-1254 CP1254
+charset-hook windows-1255 CP1255
+charset-hook windows-1256 CP1256
+charset-hook windows-1257 CP1257
+charset-hook windows-1258 CP1258
+
+
+
+#mail
+source ~/.mutt/gpg.rc 
+
+#bind index "^" imap-fetch-mail
+
+# Headers
+ignore *
+unignore date: from: to: subject: cc: user-agent: x-mailer:
+hdr_order date: from: to: subject: cc: user-agent: x-mailer: 
+
+
+# Fikse bytte av alternative
+macro pager ,@aoh= "\
+<enter-command> unalternative_order *; \
+alternative_order text/enriched text/html text/plain text;\
+macro pager A ,@aot= 'toggle alternative order'<enter>\
+<exit><display-message>"
+
+macro pager ,@aot= "\
+<enter-command> unalternative_order *; \
+alternative_order text/enriched text/plain text/html text;\
+macro pager A ,@aoh= 'toggle alternative order'<enter>\
+<exit><display-message>"
+
+macro pager A ,@aot= "toggle alternative order"
+
+
+## Å lese html
+auto_view text/html
+alternative_order text/enriched text/plain text/html 
+
+## å se bilder/video
+auto_view video/*
+auto_view image/*
+
+#Macros!
+macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+
+# Makro for å bytte konto - litt slitsom når man bruker imap
+# macro compose v ":source ~/.mutt/identity_\`echo $(($(date +%s) % $(ls ~/.mutt/identity_[0-9]* | wc -l) + 1))\`\n"
+
+#macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/uio_mail<enter><change-folder>!<enter>'
+
+#macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/gmail_mail<enter><change-folder>!<enter>'
+macro compose \e5 "F pandoc -s -f markdown -t html \ny^T^Utext/html; charset=utf-8\n"
+set wait_key=no

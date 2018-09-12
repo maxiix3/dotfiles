@@ -1,0 +1,35 @@
+unset imap_user
+unset imap_pass
+
+set from        = "maximinh@student.matnat.uio.no"
+set sendmail    = "/usr/bin/msmtp -a school"
+#set mbox       = "+School/archive"
+#set postponed  = "+School/Utkast"
+
+#password
+#source "gpg2 -dq ~/.mutt/.my-pwds.gpg |"
+
+# UiO-ting 
+
+set imap_check_subscribed
+set folder={mail.uio.no:993/ssl}INBOX
+set mbox={mail.uio.no:993/ssl}INBOX
+set postponed={mail.uio.no:993/ssl}Drafts
+set record="{mail.uio.no:993/ssl}Sent Items"
+set spoolfile={mail.uio.no:993/ssl}INBOX
+mailboxes = 
+#set smtp_url = "smtp://smtp.uio.no:587"
+#set smtp_pass=$my_pw_school
+#set realname = "Maximiliano Horta" 
+#mailboxes = =spam
+
+set from="Maximiliano Horta <m.n.horta@mn.uio.no>
+set imap_user=maximinh
+set imap_pass=$my_pw_school
+#
+
+set signature = ~/dotfiles/mutt/signatureuio.txt
+# Adresseboka til UiO
+set query_command = "perl ~/dotfiles/mutt/mutt-ldap.pl '%s'"
+bind editor "\t" complete-query
+

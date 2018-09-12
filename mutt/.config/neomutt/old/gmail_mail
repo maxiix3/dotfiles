@@ -1,0 +1,80 @@
+unset imap_user
+unset imap_pass
+
+#password
+source "gpg2 -dq ~/.mutt/.gmail_pwds.gpg |"
+
+# ========= OLD ============
+#set smtp_url       = "smtp://maximilianohorta94@smtp.gmail.com:587/"
+#set smtp_pass      = $my_pw_password # used with multiple accounts
+#set from           = "maximilianohorta94@gmail.com"
+#set use_from       = yes
+#set realname       = "Maximiliano Horta"
+#set mbox           = "+Personal/[Gmail].All\ e-post"
+#set postponed      = "+Personal/[Gmail].Utkast"
+#set sendmail       = "/usr/bin/msmtp -a personal"
+#set record         = "+[Google Mail]/Sent Mail"
+
+
+# ========= General ==========
+set from            = "maximilianohorta94@gmail.com"
+set imap_user       = "maximilianohorta94@gmail.com"
+set imap_pass       = $my_pw_password
+set smtp_url        = "smtp://maximilianohorta94@smtp.gmail.com:587/"
+set smtp_pass       = $my_pw_password
+set folder          = "imaps://imap.gmail.com:993"
+set spoolfile       = "+INBOX"
+set imap_check_subscribed
+set postponed       = "=[Gmail]/Drafts"
+set trash           = "=[Gmail]/Trash"
+
+# Alias
+alias identity_1  Maximiliano Horta     <maximilianohorta94@gmail.com> 
+alias identity_2  Maximiliano Horta     <m.n.horta@mn.uio.no>
+
+set reverse_name # Uses the to mail in replies
+alternates "maximilianohorta94@gmail.com|regiformann@rf.uio.no|m.n.horta@mn.uio.no|maximinh@ifi.uio.no"
+alternates	maximilianohorta94@gmail.com	m.n.horta@mn.uio.no	maximinh@ifi.uio.no
+
+unset record
+unset imap_passive # Allow Mutt to open new imap connection automatically.
+set header_cache        =~/.mutt/cache/headers
+set message_cachedir    =~/.mutt/cache/bodies
+set certificate_file    =~/.mutt/certificates
+set move                = no  #Stop asking to "move read messages to mbox"!
+set imap_keepalive      = 240 # Gmail trenger litt tettere oppfølging
+set mail_check          = 10 # How often to check for new mail (time in seconds).
+set display_filter      = '~/.mutt/alias.sh'
+set alias_file          = '~/.mutt/aliases
+set sort_alias= alias
+set reverse_alias=yes
+
+# Automatic signature and from addr depending on mailinglists
+send-hook   .                  'set signature="~/dotfiles/mutt/signaturegmail.txt"'
+reply-hook  .                  'set signature="~/dotfiles/mutt/signaturegmail.txt"'
+send-hook   "svada-core"       'set signature="~/dotfiles/mutt/.mutt/sig_core"'
+reply-hook  "svada-core"       'set signature="~/dotfiles/mutt/.mutt/sig_core"'
+send-hook   .                  'set from="maximilianohorta94@gmail.com"'
+send-hook   "termvakt"     'set from="m.n.horta@mn.uio.no"''
+send-hook   "mn.uio.no"    'set from="m.n.horta@mn.uio.no"'
+send-hook   "math.uio.no"  'set from="m.n.horta@mn.uio.no"'
+
+
+#---------------------------------------
+# Makroer
+set query_command="goobook query %s"
+#macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
+#bind editor <\ct> complete-query
+macro index,pager y "<save-message>=[Gmail]/All <enter><enter>" "Archive"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to inbox"
+macro index gb "<change-folder>=BMP<enter>" "Go to BMP"
+
+#macro index,pager,compose <f9> '<enter-command>set sendmail = "/usr/bin/msmtp -a regi"'
+#macro index,pager,compose <f8> '<enter-command>set sendmail = "/usr/bin/msmtp -a personal"'
+macro compose v "<edit-from>^Uidentity_<tab>" "Select from" 
+
+# Adresseboka til UiO
+#set query_command = "perl ~/dotfiles/mutt/mutt-ldap.pl '%s'"
+#bind editor "\t" complete-query
+source $alias_file
