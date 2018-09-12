@@ -208,14 +208,14 @@ exec i3-msg 'workspace 10 spotify; exec spotify'
 # Personal keybindings for function keys
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5- && amixer -q set Master unmute
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5+ && amixer -q set Master unmute
-bindsym XF86AudioMute exec $(amixer -q set Master toggle && amixer -q set Speaker unmute && amixer -q set Headphone toggle)
+bindsym XF86AudioMute exec $(amixer -q set Master toggle)
 bindsym XF86MonBrightnessDown  exec light -U 5
 bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86TouchpadToggle exec ~/.i3/toggletouchpad.sh
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-bindsym Print exec $(scrot '%y%m%d-%H%M%S.png' -e 'mv $f ~/Pictures/screenshots/')
+bindsym Print exec $(scrot '%y%m%d-%H%M%S.png' -e 'mv $f ~/Pictures/Screenshots/')
 
 
 bindsym mod1+F9     exec light -U 5
