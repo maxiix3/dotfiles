@@ -1,4 +1,5 @@
 export TERM="xterm-256color"
+PATH="$PATH:$(ruby -e 'print Gem.user_dir')/bin"
 # added fortune and ponysay to the top of my shell on startup
 #/usr/bin/fortune -a | /usr/bin/ponysay
 # added latest news from aftenposten on shell startup
@@ -145,5 +146,5 @@ utleie() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-source /usr/share/autoenv-git/activate.sh
+source /usr/bin/activate.sh
 function enw(){ envwrap "$@";autoenv_init; }

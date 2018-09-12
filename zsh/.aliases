@@ -49,3 +49,4 @@ alias vimrc='cd ~/.config/nvim/'
 
 alias regiweb='mount /mnt/regiweb && cd /mnt/regiweb' 
 alias USB='mount /mnt/usbflash && cd /mnt/usbflash' 
+alias hdmi1080='xrandr --output DP3 --scale 2x2'
