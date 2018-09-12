@@ -1,7 +1,6 @@
 " Plugins
 call plug#begin('~/.vim/bundle')
 
-Plug 'nvie/vim-flake8.git'                  " Pep8 checker
 Plug 'Yggdroot/indentLine'                  " Indentlines
 Plug 'scrooloose/nerdtree'                  " File tree explorer
 Plug 'sjl/gundo.vim'                        " Undo history tree
@@ -13,6 +12,7 @@ Plug 'airblade/vim-gitgutter'               " Leftmargin gitstatus
 Plug 'morhetz/gruvbox'                      " Colorscheme
 Plug 'junegunn/fzf.vim'                     " Vim extension to FZF (Fuzzyfinder)
 Plug 'chrisbra/Recover.vim'                 " diff recovery file
+Plug 'lambdalisue/suda.vim'                 " Workaround while :w !sudo tee.. not works 
 
 " Ultisnips
 Plug 'SirVer/ultisnips'                     " Ultisnips
@@ -26,6 +26,7 @@ Plug 'ujihisa/neco-look'                    " dictionary for deoplete
 Plug 'zchee/deoplete-jedi'                  " python syntax for deoplete
 
 " filetype related
+Plug 'nvie/vim-flake8'                      " Pep8 checker
 Plug 'daeyun/vim-matlab'
 Plug 'vim-pandoc/vim-pandoc'                " pandoc extension
 Plug 'vim-pandoc/vim-pandoc-syntax'         " pandoc syntax highlightning and stuff.
@@ -33,6 +34,7 @@ Plug 'exu/pgsql.vim'                        " PostgresSQL syntax
 Plug 'lervag/vimtex', {'for': 'tex'}        " simple latex shortcuts
 Plug 'donRaphaco/neotex', {'for': 'tex'}    " neotex
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
+Plug 'tweekmonster/django-plus.vim'         " Django+
 
 
 """"""" Never used anyway """"""""""""""""

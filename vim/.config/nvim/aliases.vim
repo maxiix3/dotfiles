@@ -35,7 +35,8 @@ noremap <Leader>t :noautocmd vimgrep /TODO/j **/*.*<CR>:cw<CR>
 noremap <Leader>fix :noautocmd vimgrep /FIXME/j **/*.*<CR>:cw<CR>
 
 " make you save, like if you opened vim with sudo
-cnoremap w!! w !sudo tee > /dev/null %
+"cnoremap w!! w !sudo tee > /dev/null %
+cnoremap w!! w suda://%
 
 " Apply rot13 to entrie file, in case you're writing somthing secret :)
 map <F11> mnggVGg?'n
