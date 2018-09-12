@@ -21,7 +21,7 @@ URxvt.url-launcher: /usr/bin/google-chrome-stable
 URxvt.matcher.button: 1
 
 ! -- Xft settings -- !
-Xft.dpi:                    155
+Xft.dpi:                    180
 Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true
