@@ -1,5 +1,0 @@
-# vim: ft=muttrc
-folder-hook gmail/*       source ~/.mutt/accounts/gmail
-folder-hook uio/* source ~/.mutt/accounts/uio
-
-source ~/.mutt/accounts/gmail # default account

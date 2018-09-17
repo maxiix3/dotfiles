@@ -1,14 +1,13 @@
-#Farger 
-source ~/.mutt/colors
-source ~/.mutt/settings
-source ~/.mutt/bindings
-source ~/.mutt/hooks
+source ~/.config/neomutt/conf/colors
+source ~/.config/neomutt/conf/settings
+source ~/.config/neomutt/conf/bindings
+source ~/.config/neomutt/conf/hooks
 
   set realname            = "Maximiliano Horta"
   set charset             = utf-8
   set text_flowed
   set send_charset        = "utf-8:iso-8859-1:us-ascii:"
-  set alias_file          = "~/.mutt/aliases"
+  set alias_file          = "~/.config/neomutt/aliases"
   set folder              = ~/mail
   set spoolfile           = "+gmail/INBOX"
   set header_cache        = ~/.mutt/cache
@@ -20,7 +19,7 @@ source ~/.mutt/hooks
   set sort=threads                        # just like gmail
   set sort_aux=last-date-received         # just like gmail
   set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
-  #set display_filter=~/dotfiles/mutt/convertdate.sh
+  set display_filter=~/.config/neomutt/scripts/convertdate.sh
   set editor          = "/usr/bin/nvim -c 'set spell spelllang=nb'"
   set attribution     = "Hei %v,\n\n%{%A %d. %b %Y} %n wrote:"
 unset write_bcc
@@ -90,7 +89,7 @@ charset-hook windows-1258 CP1258
 
 
 #mail
-source ~/.mutt/gpg.rc 
+source ~/.config/neomutt/gpg.rc 
 
 #bind index "^" imap-fetch-mail
 

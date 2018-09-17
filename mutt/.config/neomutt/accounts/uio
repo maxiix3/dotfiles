@@ -11,11 +11,11 @@ set postponed   = "+uio/drafts"
 
 set signature = ~/dotfiles/mutt/signatureuio.txt
 # Adresseboka til UiO
-set query_command = "perl ~/dotfiles/mutt/mutt-ldap.pl '%s'"
+set query_command = "perl ~/.config/neomutt/scripts/mutt-ldap.pl '%s'"
 bind editor "\t" complete-query
 
 
 macro index ,c "<change-folder>+gmail/INBOX<enter>" "change accounts"
-macro index ,z "<shell-escape>mbsync --pull-new uio-inbox<enter>" "sync IMAP"
+macro index ,z "<shell-escape>mbsync uio-inbox<enter>" "sync IMAP"
 macro index D "<save-message>+uio/Deleted\ <enter>" "move message to the trash"
 macro index S "<save-message>+uio/spam<enter>"  "mark message as spam"
