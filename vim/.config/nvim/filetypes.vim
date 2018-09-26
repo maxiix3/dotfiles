@@ -6,10 +6,14 @@
 " java function that only runs on java files.
 " vertical line indentation and running compilator on <F5>
 function! Javafiles()
+    "set completefunc=syntaxcomplete#Complete
+    set omnifunc=syntaxcomplete#Complete
     let g:EclimCompletionMethod = 'omnifunc'
     let g:indentLine_color_term = 239
     let g:indentLine_color_gui = '#09AA08'
     let g:indentLine_char = '│'
+    let g:deoplete#omni#input_patterns = {}
+    let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
     "nnoremap <buffer> <F5> :w<CR>:!javac %<CR>
     "inoremap <buffer> <F5> <esc>:w<CR>:!javac %<CR>
     nnoremap <buffer> <F5> :w<CR>:ProjectBuild<CR>
@@ -40,8 +44,8 @@ function! Pythonfiles()
     " set python 2 syntax default
     "let g:python_version_2 = 1
     " Python quickfix - pyflakes
-    let g:pyflakes_use_quickfix = 0
-    set syntax=python
+    let g:pyflakes_use_quickfix = 1
+    set syntax=on
     "let g:ycm_python_binary_path = 'python'
 
     " pep8 checker, Flake8 <F8>
@@ -80,7 +84,7 @@ function! TexFileStuff()
     let g:Tex_DefaultTargetFormat='pdf'
     set iskeyword+=:
     set sw=2
-    set textwidth=78 formatoptions+=t
+    set textwidth=79 formatoptions+=t
 
     setlocal filetype=tex
     nnoremap <buffer> <F8> :w<CR>:!pdflatex %<CR>
@@ -106,7 +110,7 @@ autocmd BufNewFile,BufRead *.md call Mdstuff()
 
 " =================== mutt ======================
 hi mailSubject ctermfg=yellow guifg=yellow
-au BufNewFile,BufRead /tmp/neomutt-* set tw=72 nocindent fileencoding=utf-8 filetype=mail
+au BufNewFile,BufRead /tmp/neomutt-* set tw=78 nocindent fileencoding=utf-8 filetype=mail
 autocmd BufRead /tmp/neomutt-* execute "normal /^$/+2"
 "autocmd BufnewFile,BufRead mutt* normal \qes
 
