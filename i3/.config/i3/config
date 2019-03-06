@@ -144,6 +144,8 @@ bar {
     status_command i3blocks                         #more flexible i3status
 #    status_command i3status                        #standard i3status
 #    status_command python ~/.i3/i3status_conf.py   #i3 status based on python
+    tray_output primary
+    tray_padding 3
     position top
     mode hide
     modifier mod4
@@ -183,13 +185,14 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 
 # startup
 exec --no-startup-id nm-applet &                    # networkmanager (WiFi)
-exec --no-startup-id blueman-applet &               # bluetooth
+#exec --no-startup-id blueman-applet &               # bluetooth
 #exec ~/dotfiles/feh/wallpaper.sh &                 # Background
-exec --no-startup-id feh --bg-scale ~/Pictures/wallhaven-380524.jpg
-#exec --no-startup-id touchegg                      # for touchscreen
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/wallhaven-380524.jpg &
 exec --no-startup-id syndaemon -t -k -i 2 -d        # stops the mouse when typing
-exec --no-startup-id xss-lock -- /usr/bin/i3lock -f # autolock
-exec --no-startup-id redshift-gtk                   # flux (yellow-ish screen at night)
+#exec --no-startup-id xss-lock -- /usr/bin/i3lock -k -B 10 # autolock
+#exec --no-startup-id redshift-gtk                   # flux (yellow-ish screen at night)
+exec --no-startup-id xss-lock -- /home/max/dotfiles/lock.sh &
+exec --no-startup-id udiskie &
 
 
 set $w9 workspace 9 slack
@@ -206,8 +209,8 @@ exec i3-msg 'workspace 9 slack; exec slack'
 exec i3-msg 'workspace 10 spotify; exec spotify'
 
 # Personal keybindings for function keys
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5- && amixer -q set Master unmute
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5+ && amixer -q set Master unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 1000- && amixer -q set Master unmute
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 1000+ && amixer -q set Master unmute
 bindsym XF86AudioMute exec $(amixer -q set Master toggle)
 bindsym XF86MonBrightnessDown  exec light -U 5
 bindsym XF86MonBrightnessUp exec light -A 5
@@ -224,7 +227,11 @@ bindsym mod1+F10    exec light -A 5
 # ===== Personal keybindings for opning programs ====
 bindsym $mod+c exec google-chrome-stable
 #lock the screen
-bindsym $mod+m exec i3lock -f
+#bindsym $mod+m exec i3lock -k -B 10
+#bindsym $mod+m exec i3lock --insidevercolor=0000a0bf --insidewrongcolor=ff8000bf --insidecolor=ffffffbf --ringvercolor=0020ffff --ringwrongcolor=4040ffff --ringcolor=404090ff --separatorcolor=aaaaaaff --keyhlcolor=30ccccff --bshlcolor=ff8000ff -s -k -B 10 --indicator --radius=130 --timesize=48 --datesize=26
+#bindsym $mod+m exec i3lock --timepos="x-90:h-20" --datepos="tx+24:ty+25" --clock --datestr "Type password to unlock..." --insidevercolor=0000a0bf --insidewrongcolor=ff8000bf --insidecolor=ffffffbf --ringvercolor=0020ffff --ringwrongcolor=4040ffff --ringcolor=404090ff --separatorcolor=aaaaaaff --keyhlcolor=30ccccff --bshlcolor=ff8000ff -s -k -B 10 --indicator --radius=130 --timesize=48 --datesize=26 -k -s -B 10
+bindsym $mod+m exec ~/dotfiles/lock.sh
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 # start dmenu (a program launcher)
