@@ -9,7 +9,7 @@ source ~/.config/neomutt/conf/hooks
   set send_charset        = "utf-8:iso-8859-1:us-ascii:"
   set alias_file          = "~/.config/neomutt/aliases"
   set folder              = ~/mail
-  set spoolfile           = "+gmail/INBOX"
+  set spoolfile           = "+uio/INBOX"
   set header_cache        = ~/.mutt/cache
   set mail_check          = 0
   set mime_forward        = ask-no
@@ -19,7 +19,7 @@ source ~/.config/neomutt/conf/hooks
   set sort=threads                        # just like gmail
   set sort_aux=last-date-received         # just like gmail
   set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
-  set display_filter=~/.config/neomutt/scripts/convertdate.sh
+#set display_filter=~/.config/neomutt/scripts/convertdate.sh
   set editor          = "/usr/bin/nvim -c 'set spell spelllang=nb'"
   set attribution     = "Hei %v,\n\n%{%A %d. %b %Y} %n wrote:"
 unset write_bcc
@@ -29,31 +29,36 @@ unset write_bcc
 unset fcc_attach # No attachment in the record 
   set mail_check_stats
 
-mailboxes =gmail/Accounts
-mailboxes =gmail/&APg-konomi
-mailboxes =gmail/BMP
-mailboxes =gmail/Forsvaret\ \&-\ HV
-mailboxes =gmail/INBOX
-mailboxes =gmail/Pistol
-mailboxes =gmail/UIO
-mailboxes =gmail/UIO/RF
-mailboxes =gmail/UIO/RF/&APg-konomi
-mailboxes =gmail/UIO/RF/arr
-mailboxes =gmail/UIO/RF/bar
-mailboxes =gmail/UIO/RF/core-wannabe
-mailboxes =gmail/UIO/RF/cosa-nostra
-mailboxes =gmail/UIO/RF/Diskusjon
-mailboxes =gmail/UIO/RF/Gilde
-mailboxes =gmail/UIO/RF/Gjenglemt
-mailboxes =gmail/UIO/RF/HS
-mailboxes =gmail/UIO/RF/KS
-mailboxes =gmail/UIO/RF/MoneyMaker
-mailboxes =gmail/UIO/RF/Regi
-mailboxes =gmail/UIO/RF/Regi-&APg-konomi
-mailboxes =gmail/UIO/RF/Registyret
-mailboxes =gmail/UIO/RF/Styret
-mailboxes =gmail/UIO/RF/TLC
-mailboxes =gmail/UIO/spf-styret
+mailboxes =--------Fastmail-------
+mailboxes =fastmail/Inbox
+mailboxes =fastmail/Inbox/Accounts
+mailboxes =fastmail/Inbox/&APg-konomi
+mailboxes =fastmail/Inbox/BMP
+mailboxes =fastmail/Inbox/Forsvaret\ \&-\ HV
+mailboxes =fastmail/Inbox/Github
+mailboxes =fastmail/Inbox/gmail\ vidresending
+mailboxes =fastmail/Inbox/Pistol
+mailboxes =fastmail/Inbox/UIO
+mailboxes =fastmail/Inbox/UIO/RF
+mailboxes =fastmail/Inbox/UIO/RF/&APg-konomi
+mailboxes =fastmail/Inbox/UIO/RF/arr
+mailboxes =fastmail/Inbox/UIO/RF/bar
+mailboxes =fastmail/Inbox/UIO/RF/core-wannabe
+mailboxes =fastmail/Inbox/UIO/RF/cosa-nostra
+mailboxes =fastmail/Inbox/UIO/RF/Diskusjon
+mailboxes =fastmail/Inbox/UIO/RF/Gilde
+mailboxes =fastmail/Inbox/UIO/RF/Gjenglemt
+mailboxes =fastmail/Inbox/UIO/RF/HS
+mailboxes =fastmail/Inbox/UIO/RF/KS
+mailboxes =fastmail/Inbox/UIO/RF/MoneyMaker
+mailboxes =fastmail/Inbox/UIO/RF/Regi
+mailboxes =fastmail/Inbox/UIO/RF/Regi-&APg-konomi
+mailboxes =fastmail/Inbox/UIO/RF/Registyret
+mailboxes =fastmail/Inbox/UIO/RF/Styret
+mailboxes =fastmail/Inbox/UIO/RF/TLC
+mailboxes =fastmail/Inbox/UIO/spf-styret
+
+mailboxes =------UiO------
 mailboxes =uio/Deleted\ Items
 mailboxes =uio/Drafts
 mailboxes =uio/INBOX

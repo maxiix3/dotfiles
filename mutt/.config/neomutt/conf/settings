@@ -1,10 +1,11 @@
 set alias_file  = ~/.config/neomutt/aliases
 
 # Sidebar Patch --------------------------------------
-set sidebar_divider_char  = '  │'
-set sidebar_folder_indent = yes
-set sidebar_visible = yes
-set sidebar_width   = 30
+set sidebar_divider_char    = '  │'
+set sidebar_folder_indent   = yes
+set sidebar_visible         = yes
+set sidebar_width           = 30
+set sidebar_short_path      = yes
 color sidebar_new color221 color233
 
 # Status Bar -----------------------------------------
