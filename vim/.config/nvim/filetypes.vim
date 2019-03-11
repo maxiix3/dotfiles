@@ -84,7 +84,7 @@ function! TexFileStuff()
     let g:Tex_DefaultTargetFormat='pdf'
     set iskeyword+=:
     set sw=2
-    set textwidth=79 formatoptions+=t
+    set textwidth=99 formatoptions+=t
 
     setlocal filetype=tex
     nnoremap <buffer> <F8> :w<CR>:!pdflatex %<CR>
@@ -122,3 +122,10 @@ function! MatLabstuff()
 endfunction
 autocmd BufNewFile,BufRead *.m call MatLabstuff()
 
+" ================== Assembly ======================
+function! Asmstuff()
+    set noexpandtab
+    set softtabstop=2
+    set shiftwidth=2
+endfunction
+autocmd BufNewFile,BufRead *.s call Asmstuff()

@@ -20,10 +20,10 @@ nmap <space>h <Plug>AirlineSelectPrevTab
 nmap <space>l <Plug>AirlineSelectNextTab
 
 " maps the window movement 
-map <c-Down> <c-w>j
-map <c-Up> <c-w>k
-map <c-Right> <c-w>l
-map <c-Left> <c-w>h
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 " escape rules
 imap <nowait> jk <esc>
@@ -35,7 +35,7 @@ noremap <Leader>t :noautocmd vimgrep /TODO/j **/*.*<CR>:cw<CR>
 noremap <Leader>fix :noautocmd vimgrep /FIXME/j **/*.*<CR>:cw<CR>
 
 " make you save, like if you opened vim with sudo
-"cnoremap w!! w !sudo tee > /dev/null %
+"cnoremap w!! w !sudo tee > /dev/null %  " Not working on neovim :(
 cnoremap w!! w suda://%
 
 " Apply rot13 to entrie file, in case you're writing somthing secret :)
@@ -45,8 +45,6 @@ map <F11> mnggVGg?'n
 " \H - hls   (set search highlights)
 nmap \h :nohls<Enter>
 nmap \H :set hls <Enter>
-
-
 
 " NerdTree: File tree extension
 nmap <leader>d :NERDTreeToggle<CR>

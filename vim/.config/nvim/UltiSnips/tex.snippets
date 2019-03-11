@@ -1,0 +1,209 @@
+priority -50
+
+extends texenviroment
+extends texmath
+
+snippet #! "preamble" b
+\documentclass{$1}
+endsnippet
+snippet "\\documentclass\{a(r(ti?)?)?" "preamble" br
+\documentclass[10pt, USenglish, twocoloumn]{article
+endsnippet
+snippet "\\documentclass\{b(e(am?)?)?" "beamer" br
+\documentclass{beamer
+endsnippet
+
+snippet "\\documentclass([^{}]+)?\{[^{}]+\}" "preamble" br
+`!p snip.rv=match.group(0)`
+
+\usepackage[british]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath, amssymb, graphicx, bm, verbatim}
+
+\\author{Maximiliano Horta}
+
+\begin{document}
+$0
+\end{document}
+endsnippet
+
+
+snippet "labe?" "label" br
+label
+endsnippet
+snippet label "label" b
+\label{$1}
+endsnippet
+
+snippet "cap(t(io?)?)?" "caption" br
+caption
+endsnippet
+snippet caption "caption" b
+\caption{$1}
+endsnippet
+
+
+snippet "inc(l(ud?)?)?" "includegraphics" br
+includegraphics
+endsnippet
+snippet includegraphics "includegraphics" b
+\includegraphics[width=$1\textwidth]{$2}
+endsnippet
+snippet "\\includegraphics\[[^\[\]]*\]\{[^{}]+\}( ?(&|\\\\))?" "includegraphics" br
+`!p snip.rv=match.group(0)`
+\includegraphics[width=$1\textwidth]{$2}
+endsnippet
+
+snippet "\\column\{[^{}]+\}" "column" br
+`!p snip.rv=match.group(0)`
+\\column{$1\\textwidth}
+endsnippet
+
+snippet "mul(t(i(co?)?)?)?" "multicolumn" br
+multicolumn
+endsnippet
+snippet multicolumn "multicolumn" b
+\\multicolumn{${1:2}}{${2:c}}{$3}
+endsnippet
+
+snippet code "code" b
+@@@CODE 
+endsnippet
+snippet data "data" b
+@@@DATA
+endsnippet
+snippet cmd "cmd" b
+@@@CMD
+endsnippet
+snippet pro "pro" b
+\\bpro
+$1
+\\epro
+endsnippet
+snippet sys "sys" b
+\\bsys
+$1
+\\esys
+endsnippet
+
+
+snippet input "input" b
+\\input{$1}
+endsnippet
+
+snippet eqref "eqref" w
+\\eqref{eq_$1}
+endsnippet
+snippet ref "ref" w
+\\${1/(eq[_:].*)|(.*)/(?1:eq)/}ref{$1}$0
+endsnippet
+snippet figref "" w
+\\ref{fig_$1}
+endsnippet
+snippet secref "" w
+\\ref{sec_$1}
+endsnippet
+
+snippet "%?secl(a(be?)?)?" "seclabel" br
+%seclabel
+endsnippet
+snippet "%seclabel" "seclabel" br
+\label{sec:$1}
+endsnippet
+snippet seclabel "seclabel" b
+\label{sec:$1}
+endsnippet
+snippet "\\label\{sec:([^}]+)\}" "seclabel" br
+\label{sec:`!p snip.rv=match.group(1)`}
+$0
+endsnippet
+
+snippet "se(c(ti?)?)?" "section" br
+section
+endsnippet
+snippet section "section" b
+\section{$1}
+%seclabel
+$0
+endsnippet
+snippet section* "section*" b
+\section*{$1}
+endsnippet
+
+snippet "sub?" "sub" br
+subs
+endsnippet
+snippet "subse(c(ti?)?)?" "subsection" br
+subsection
+endsnippet
+snippet subsection "subsection" b
+\\subsection{$1}
+\\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+endsnippet
+snippet subsection* "subsection*" b
+\\subsection*{$1}
+endsnippet
+
+snippet "subsu(b(se?)?)?" "subsubsection" br
+subsubsection
+endsnippet
+snippet subsubsection "subsubsection" b
+\\subsubsection{$1}
+\\label{ssub:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+endsnippet
+snippet subsubsection* "subsubsection*" b
+\\subsubsection*{$1}
+endsnippet
+
+snippet bm "bm" w
+\\bm{$1}
+endsnippet
+
+snippet label "label" b
+\\label{$1}
+endsnippet
+
+snippet bibliography "bibliography" b
+\\bibliographystyle{plain}
+\\bibliography{$1}
+endsnippet
+
+snippet "[~ ]cite" "cite" r
+~\\cite{$1}
+endsnippet
+snippet cite "cite" b
+\\cite{$1}
+endsnippet
+snippet " (\\cite\{[^}]*\})" "cite" r
+~`!p snip.rv=match.group(1)`
+endsnippet
+
+snippet phantom "phantom" w
+\\phantom{$1}
+endsnippet
+
+snippet emph "emph" w
+\\emph{$1}
+endsnippet
+
+snippet scriptsize "scriptsize" w
+\\scriptsize
+endsnippet
+snippet normalsize "normalsize" w
+\\normalsize
+endsnippet
+snippet large "large" w
+\\large
+endsnippet
+snippet LARGE "LARGE" w
+\\LARGE
+endsnippet
+snippet small "small" w
+\\small
+endsnippet
+snippet tiny "tiny" w
+\\tiny
+endsnippet
+
+# vim:ft=snippets:

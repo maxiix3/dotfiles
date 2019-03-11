@@ -16,12 +16,14 @@ set backspace=indent,eol,start  " smart backspacing
 set backupdir=~/.vim/backup     " directory for backups
 set cindent                     " indenting // don't know the differens
 set clipboard=unnamedplus       " use unix clipboard insted of the vim local clipboard
-set colorcolumn=100,120         " Highlight right margins. 100 is the new 80
+set colorcolumn=80,100,120      " Highlight right margins. 100 is the new 80
 set cpoptions=aABceFsq          " compatibility options, rtfm
 set directory=~/.vim/tmp        " directory for swapfiles
 set expandtab                   " convert tabs to spaces
 set fileformat=unix             " ------ '' ------
 set fileformats=unix,dos        " LF all the way, baby
+set foldmethod=indent           " make classes and other things folded
+set foldlevel=99                " Fold level
 set history=50                  " remember 50 commands
 set hlsearch                    " highlight search
 set ignorecase                  " case insensitive
@@ -71,8 +73,6 @@ set wmh=0                       " window minimum height is 0, rather than 1 line
 " Unused:
 "set backup                      " backup
 "set fillchars=stl:_,stlnc:-,vert:\|,fold:\ ,diff:- something to do with foldable
-"set foldmethod=indent           " make classes and other things folded
-"set foldnestmax=4               " set max folds.
 "set nocursorcolumn              " highlight current column
 "set nocursorline                " underline the current line
 "set t_AB=^[[48;5;%dm            " adds 256 color support   Don't needed
@@ -91,3 +91,7 @@ if exists('+breakindent')
 	set showbreak=↳
 	set wrap
 endif
+
+" who needs caps lock ?
+au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'

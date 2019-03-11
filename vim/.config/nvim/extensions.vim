@@ -1,4 +1,4 @@
-" Plugins
+﻿"========= Plug Plugins ===========
 call plug#begin('~/.vim/bundle')
 
 Plug 'Yggdroot/indentLine'                  " Indentlines
@@ -13,6 +13,10 @@ Plug 'morhetz/gruvbox'                      " Colorscheme
 Plug 'junegunn/fzf.vim'                     " Vim extension to FZF (Fuzzyfinder)
 Plug 'chrisbra/Recover.vim'                 " diff recovery file
 Plug 'lambdalisue/suda.vim'                 " Workaround while :w !sudo tee.. not works 
+Plug 'tmhedberg/SimpylFold'                 " Fixes folding so not everyting folds
+"Plug 'vimwiki/vimwiki'                      " vimWiki
+
+Plug 'alfredodeza/pytest.vim'
 
 " Ultisnips
 Plug 'SirVer/ultisnips'                     " Ultisnips
@@ -34,24 +38,22 @@ Plug 'exu/pgsql.vim'                        " PostgresSQL syntax
 Plug 'lervag/vimtex', {'for': 'tex'}        " simple latex shortcuts
 Plug 'donRaphaco/neotex', {'for': 'tex'}    " neotex
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
-Plug 'tweekmonster/django-plus.vim'         " Django+
+Plug 'vim-syntastic/syntastic'            " syntastic for syntax checking
 
-
-""""""" Never used anyway """"""""""""""""
-"Plugin 'easymotion/vim-easymotion'      
+" Never used anyway
+"Plugin 'easymotion/vim-easymotion'
 "Plugin 'haya14busa/vim-easyoperator-line'
 
 call plug#end()
 
 
-"""""""""""""" Unused and old things """"""""""""""""""
-"augroup YouCompleteMe
-"autocmd!
-"   let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-"   let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
-"augroup end
+" Vimwiki
+let g:vimwiki_list = [{'path': '~/Documents/',
+                    \ 'syntax': 'markdown',
+                    \ 'ext': '.md'}]
 
-
+let g:SimpylFold_docstring_preview=1
+let NERDTreeIgnore=['\.pyc$','\.class','\~$']
 
 function! g:UltiSnips_Complete()
     call UltiSnips#ExpandSnippet()
@@ -75,6 +77,7 @@ augroup Ultisnips
           \ " <C-R>=g:UltiSnips_Complete()<cr>"
     let g:UltiSnipsEditSplit="vertical"
     let g:UltiSnipsUsePythonVersion = 3
+    "let g:UltiSnipsSnippetDir="~/.vim/UltiSnips"
     "let g:UltiSnipsExpandTrigger = '<C-z>'
     let g:UltiSnipsJumpForwardTrigger = '<C-z>'
     let g:UltiSnipsJumpBackwardTrigger = '<C-x>'
@@ -84,7 +87,7 @@ augroup end
 augroup Deoplete
     autocmd!
     let g:deoplete#enable_at_startup = 1
-    let g:deoplete#enable_refresh_always = 0
+    let g:deoplete#enable_refresh_always = 1
     let g:deoplete#auto_complete_start_length = 2
     let g:deoplete#disable_auto_complete = 0
     let g:deoplete#tag#cache_limit_size = 10000000
@@ -108,7 +111,6 @@ augroup Airline
     let g:airline_detect_iminsert = 0
     let g:airline_inactive_collapse = 1
     "let g:airline_theme = 'term'
-    let g:airline_powerline_fonts = 0
     let g:airline_mode_map = {
         \ '__' : '-', 'n'  : 'N', 'i'  : 'I', 'R'  : 'R', 'c'  : 'C',
         \ 'v'  : 'V', 'V'  : 'L', '' : 'B', 's'  : 's', 'S'  : 'S', }
@@ -130,7 +132,7 @@ augroup Airline
     let g:airline#extensions#tabline#show_splits = 1
     let g:airline#extensions#tabline#switch_buffers_and_tabs = 0
     let g:airline#extensions#tabline#show_buffers = 0
-    let g:airline#extensions#tabline#show_tabs = 0
+    let g:airline#extensions#tabline#show_tabs = 1
     let g:airline#extensions#tabline#excludes = ["term"]
     let g:airline#extensions#tabline#exclude_preview = 1
     let g:airline#extensions#tabline#tab_nr_type = 1
@@ -146,7 +148,6 @@ augroup Airline
     let g:airline#extensions#csv#column_display = 'Name'
     let g:airline#extensions#virtualenv#enabled = 1
 
-    let g:airline#extensions#tabline#enabled = 1
     let g:airline_powerline_fonts = 1
     let g:airline#extensions#bufferline#enabled = 1
     let g:airline#extensions#hunks#enabled = 1
@@ -157,18 +158,22 @@ augroup Vimtex
     autocmd!
     au User VimtexEventInitPost VimtexCompile
     au User VimtexEventQuit VimtexClean
-    let loaded_matchit = 0
-    let g:vimtex_motion_enabled = 1
-    let g:vimtex_mappings_enabled = 1
-    let g:vimtex_completion_enabled = 0
-    let g:vimtex_text_obj_enabled = 0
-    let g:tex_flavor = 'latex'
-    let g:vimtex_enabled = 1
-    let g:vimtex_complete_close_braces = 1
     let g:latex_view_general_viewer = 'zathura'
+    let g:neotex_enable = 2
+    let g:neotex_latexdiff = 1
+    let g:tex_flavor = 'latex'
+    let g:vimtex_compiler_progname = 'nvr'
+    "let g:vimtex_compiler_progname = 'nvr --remote-silent %f -c %l'
+    let g:vimtex_complete_close_braces = 1
+    let g:vimtex_completion_enabled = 0
+    let g:vimtex_enabled = 1
+    let g:vimtex_mappings_enabled = 1
+    let g:vimtex_motion_enabled = 1
     let g:vimtex_quickfix_fix_paths = 1
     let g:vimtex_quickfix_mode = 0
+    let g:vimtex_text_obj_enabled = 0
     let g:vimtex_view_method = 'zathura'
+    let loaded_matchit = 0
 augroup end
 
 augroup CSV
@@ -187,3 +192,4 @@ augroup FzF
     nmap <leader>r :tags<CR>
     nmap <leader>f :Files<CR>
 augroup end
+
