@@ -4,18 +4,19 @@ set from        = "Maximiliano Horta <m.n.horta@mn.uio.no>"
 set sendmail    = "/usr/bin/msmtp -a uio"
 set mbox        = "+uio/archive"
 set postponed   = "+uio/drafts"
+set record      = "~/mail/uio/Sent Items"
 
 #password
 #source "gpg2 -dq ~/.mutt/.my-pwds.gpg |"
 
 
-set signature = ~/dotfiles/mutt/signatureuio.txt
+set signature = "~/.config/neomutt/signs/signatureuio.txt"
 # Adresseboka til UiO
 set query_command = "perl ~/.config/neomutt/scripts/mutt-ldap.pl '%s'"
 bind editor "\t" complete-query
 
 
-macro index ,c "<change-folder>+gmail/INBOX<enter>" "change accounts"
+macro index ,c "<change-folder>+fastmail/Inbox<enter>" "change accounts"
 macro index ,z "<shell-escape>mbsync uio-inbox<enter>" "sync IMAP"
 macro index D "<save-message>+uio/Deleted\ <enter>" "move message to the trash"
 macro index S "<save-message>+uio/spam<enter>"  "mark message as spam"
