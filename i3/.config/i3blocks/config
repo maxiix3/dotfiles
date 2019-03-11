@@ -22,7 +22,8 @@ separator_block_width=14
 #command=~/.i3/blockets/i3blocks-crypto/crypto
 
 [mediaplayer]
-command=~/.config/i3blocks/blockets/mediaplayer/mediaplayer
+#command=~/.config/i3blocks/blockets/mediaplayer/mediaplayer
+command=~/.config/i3blocks/blockets/i3blocks-contrib/mediaplayer/mediaplayer
 instance=spotify
 interval=5
 signal=10
@@ -42,9 +43,9 @@ color=#7663FF
 
 [email]
 command=~/.config/i3blocks/blockets/i3blocks-contrib/email/email
-instance=gmail
+instance=priv
 interval=300
-label=Gmail:
+label=Priv:
 #min_width=gmail: 99
 
 [email]
