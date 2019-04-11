@@ -1,0 +1,146 @@
+# vim: ft=cfg:
+IMAPAccount uio
+Host mail.uio.no
+user maximinh
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.config/neomutt/accounts/uio_pass.gpg"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore uio-remote
+Account uio
+
+MaildirStore uio-local
+Path ~/mail/uio/
+Inbox ~/mail/uio/INBOX
+SubFolders Verbatim
+
+Channel uio-inbox
+Master :uio-remote:
+Slave :uio-local:
+Patterns * !Synkroniseringsfeil/*
+
+Create Both
+Expunge Both
+SyncState *
+
+#Channel uio-archive
+#Master ":uio-remote:/Inbox"
+#Slave :uio-local:archive
+#
+#Channel uio-drafts
+#Master :uio-remote:/Drafts
+#Slave :uio-local:drafts
+#
+#Channel uio-sent
+#Master ":uio-remote:/Sent Items"
+#Slave :uio-local:sent
+#
+#Channel uio-spam
+#Master :uio-remote:/Junk Email
+#Slave :uio-local:spam
+#
+#Channel uio-trash
+#Master :uio-remote:Trash
+#Slave :uio-local:trash
+#
+#Channel uio-rest
+#Master :uio-remote:
+#Slave :uio-local:
+#Patterns * !archive !inbox !drafts !sent !junk !trash
+#
+#Group uio
+#Channel uio-inbox
+#Channel uio-archive
+#Channel uio-drafts
+#Channel uio-sent
+#Channel uio-spam
+#Channel uio-trash
+#Channel uio-rest
+
+IMAPAccount fastmail
+Host imap.fastmail.com
+User post@maxhorta.no
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.config/neomutt/accounts/fm_pwds.gpg"
+#AuthMechs LOGIN
+SSLType IMAPS
+
+IMAPStore fastmail-remote
+Account fastmail
+
+MaildirStore fastmail-local
+Path ~/mail/fastmail/
+Inbox ~/mail/fastmail/Inbox
+SubFolders Verbatim
+
+Channel fastmail-inbox
+Master :fastmail-remote:
+Slave :fastmail-local:
+Patterns *
+
+Create Both
+Expunge Both
+SyncState *
+
+IMAPAccount gmail
+Host imap.gmail.com
+User maximilianohorta94@gmail.com
+PassCmd "gpg2 -q --for-your-eyes-only --no-tty -d ~/.config/neomutt/accounts/gmail_pwds.gpg"
+SSLType IMAPS
+SSLVersions TLSv1.2
+#CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+Path ~/mail/gmail/
+Inbox ~/mail/gmail/INBOX
+SubFolders Verbatim
+
+Channel gmail-inbox
+Master :gmail-remote:
+Slave :gmail-local:
+Patterns * 
+
+Create Both
+Expunge Both
+SyncState *
+
+#Master :gmail-remote:INBOX
+#Slave :gmail-local:INBOX
+#
+#Channel gmail-archive
+#Master ":gmail-remote:[Gmail]/All Mail"
+#Slave :gmail-local:archive
+#
+#Channel gmail-drafts
+#Master :gmail-remote:[Gmail]/Drafts
+#Slave :gmail-local:drafts
+#
+#Channel gmail-sent
+#Master ":gmail-remote:[Gmail]/Sent Mail"
+#Slave :gmail-local:sent
+#
+#Channel gmail-spam
+#Master :gmail-remote:[Gmail]/Spam
+#Slave :gmail-local:spam
+#
+#Channel gmail-trash
+#Master :gmail-remote:[Gmail]/Trash
+#Slave :gmail-local:trash
+#
+#Channel gmail-rest
+#Master :gmail-remote:
+#Slave :gmail-local:
+#Patterns * ![Gmail]* !archive !drafts !sent !spam !trash
+#
+#Group gmail
+#Channel gmail-inbox
+#Channel gmail-archive
+#Channel gmail-drafts
+#Channel gmail-sent
+#Channel gmail-spam
+#Channel gmail-trash
+#Channel gmail-rest
+#
