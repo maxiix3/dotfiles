@@ -193,6 +193,7 @@ exec --no-startup-id syndaemon -t -k -i 2 -d        # stops the mouse when typin
 #exec --no-startup-id redshift-gtk                   # flux (yellow-ish screen at night)
 exec --no-startup-id xss-lock -- /home/max/dotfiles/lock.sh &
 exec --no-startup-id udiskie &
+exec --no-startup-id compton &
 
 
 set $w9 workspace 9 slack
