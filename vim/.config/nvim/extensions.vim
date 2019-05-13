@@ -1,5 +1,5 @@
 ﻿"========= Plug Plugins ===========
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'Yggdroot/indentLine'                  " Indentlines
 Plug 'scrooloose/nerdtree'                  " File tree explorer
