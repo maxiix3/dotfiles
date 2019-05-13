@@ -184,7 +184,7 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 # =========================================================
 
 # startup
-exec --no-startup-id nm-applet &                    # networkmanager (WiFi)
+#exec --no-startup-id nm-applet &                    # networkmanager (WiFi)
 #exec --no-startup-id blueman-applet &               # bluetooth
 #exec ~/dotfiles/feh/wallpaper.sh &                 # Background
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/wallhaven-380524.jpg &
