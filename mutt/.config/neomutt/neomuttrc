@@ -11,6 +11,7 @@ source ~/.config/neomutt/conf/hooks
   set folder              = ~/mail
   set spoolfile           = "+uio/INBOX"
   set header_cache        = ~/.mutt/cache
+  set message_cachedir    = ~/.mutt/cache
   set mail_check          = 0
   set mime_forward        = ask-no
   set mbox_type           = maildir
