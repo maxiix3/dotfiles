@@ -3,11 +3,12 @@ xrdb -merge ~/.Xresources
 
 # hides the mouse when not used
 unclutter &
+compton &
 
 setxkbmap no
 xset +fp /usr/share/fonts/local
 xset fp rehash
-exec i3
+#exec i3
 DEFAULT_SESSION=i3
 xset s 120 150
 
