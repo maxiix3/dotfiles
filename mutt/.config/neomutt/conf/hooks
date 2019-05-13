@@ -1,5 +1,5 @@
 # vim: ft=muttrc
-folder-hook gmail/*         source ~/.config/neomutt/accounts/gmail
+#folder-hook gmail/*         source ~/.config/neomutt/accounts/gmail
 folder-hook uio/*           source ~/.config/neomutt/accounts/uio
 folder-hook fastmail/*      source ~/.config/neomutt/accounts/fastmail
 
