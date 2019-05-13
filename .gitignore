@@ -1,5 +1,6 @@
 vim/.vim/backup/
 vim/.vim/tmp/
+vim/.config/nvim/plugged
 mutt/.config/neomutt/aliases
 feh/fehbg
 mutt/.mutt/cache/
