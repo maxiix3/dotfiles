@@ -1,0 +1,69 @@
+# Alias file	
+
+alias uiodisk='sshfs  maximinh@login.ifi.uio.no: ~/uiodisk -o reconnect,modules=iconv,from_code=utf8,auto_cache'	
+alias usb='cd /mnt/usbflash'	
+alias USB='mount /mnt/usbflash && cd /mnt/usbflash' 	
+alias colemak='setxkbmap us -v colemak'	
+alias norsk='setxkbmap no'	
+alias uiosock='ssh -D 8123 -f -C -q -N maximinh@login.uio.no'	
+alias whatthecommit='curl http://whatthecommit.com/index.txt | git commit --file -'	
+alias dear-diary='~/git/dotfiles/scripts/deardiary.sh'	
+alias pull-all='~/git/update-git.sh'	
+
+alias android-mount='jmtpfs ~/mnt'	
+alias android-unmount='fusermount -u ~/mnt'	
+
+alias capsoff="xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'"	
+alias capson="xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'"	
+
+# renames	
+alias stow='stow -d ~/dotfiles'	
+alias cp='rsync -ah --progress'	
+alias eclim='/usr/lib/eclipse/eclimd'	
+alias bosch='~/build/bochs-2.6.8/bochs -f ~/build/bochs-2.6.8/.bochsrc'	
+alias ls='ls -h --color=auto'	
+alias vim='nvim'	
+alias vi='vim'	
+alias mutt='cd ~/Documents/attachments && neomutt'	
+alias vimrc='cd ~/.config/nvim/'	
+alias enw='enw -i'	
+
+# RDP	
+#alias win='xfreerdp /u:maximinh /d:uio /size:1920x1080 /smart-sizing:1920x1080 /v:win.uio.no'	
+#alias sandra='xfreerdp ~/Documents/RF/regi/sandra.rdp -u maximinh'	
+#alias sandra_stor='xfreerdp ~/Documents/RF/regi/sandra_stor.rdp -u maximinh'	
+#alias carola='xfreerdp /u:maximinh /d:uio /size:1920x1080 /smart-sizing:1920x1080 /v:carola.uio.no'	
+#alias spagna='xfreerdp /u:maximinh /d:uio /smart-sizing:1900x1055 /v:spagna.uio.no'	
+#alias mnadm86-l='xfreerdp /u:maximinh /d:uio /size:1920x1080 /smart-sizing:1920x1080 /v:mnadm86-l.uio.no'	
+#alias workmachine='xfreerdp /u:maximinh /d:uio /size:1920x1080 /smart-sizing:1920x1080 /v:mnadm86-l.uio.no'	
+
+alias win='xfreerdp ~/Documents/MN-IT/win.uio.no.rdp /u:maximinh /d:uio /size:1920x1080 /smart-sizing:1920x1080'
+alias carola='xfreerdp ~/Documents/MN-IT/carola.uio.no.rdp /u:maximinh /d:uio /size:1920x1080 /smart-sizing:1920x1080'	
+alias lkit='xfreerdp ~/Documents/MN-IT/lkit-ts.uio.no.rdp /u:maximinh-drift /d:uio /size:1920x1080 /smart-sizing:1920x1080'
+alias mnadm86-l='xfreerdp ~/Documents/MN-IT/mnadm86-l.uio.no.rdp /u:maximinh /d:uio /size:1920x1080 /smart-sizing:1920x1080'
+alias workmachine='xfreerdp ~/Documents/MN-IT/mnadm86-l.uio.no.rdp /u:maximinh /d:uio /size:1920x1080 /smart-sizing:1920x1080'
+
+##School folders	
+#alias inf1010='cd ~/Documents/uio/2.semester/inf1010'	
+#alias mat1110='cd ~/Documents/uio/2.semester/mat1110'	
+#alias inf1060='cd ~/Documents/uio/3.semester/inf1060'	
+#alias inf2270='cd ~/Documents/uio/4.semester/inf2270'	
+#alias inf3400='cd ~/Documents/uio/4.semester/inf3400'	
+#alias inf2220='cd ~/Documents/uio/5.semester/inf2220'	
+#alias inf3490='cd ~/Documents/uio/5.semester/inf3490'	
+#alias inf3430='cd ~/Documents/uio/5.semester/inf3430'	
+#alias inf3470='cd ~/Documents/uio/5.semester/inf3470'	
+#alias inf1050='cd ~/Documents/uio/6.semester/inf1050'	
+#alias inf3190='cd ~/Documents/uio/6.semester/inf3190'	
+#alias mat1110='cd ~/Documents/uio/6.semester/mat1110'	
+#alias inf4331='cd ~/Documents/uio/7.semester/inf4331'	
+#alias in1020='cd ~/Documents/uio/7.semester/in1020'	
+#alias unik4270='cd ~/Documents/uio/7.semester/unik4270'	
+#alias inf3470='cd ~/Documents/uio/7.semester/inf3470'	
+
+#Screenfix	
+alias hdmi1080='xrandr --output DP3 --scale 2x2'	
+alias dockingtb16right='xrandr --output DP1-2 --scale 2x2 --primary --output DP1-3 --pos 3840x0 --scale 2x2'	
+alias dockingtb16left='xrandr --output DP1-2 --scale 2x2 --primary --output DP1-3 --pos -3840x0 --scale 2x2'	
+alias dockingwd15='xrandr --output DP1-1 --scale 2x2 --primary --output DP1-3 --pos 3840x0 --scale 2x2'	
+alias simula='xrandr --output DP1-2 --scale 1.5x1.5 --pos -3840x0'	
