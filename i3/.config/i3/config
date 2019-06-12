@@ -210,8 +210,11 @@ exec i3-msg 'workspace 9 slack; exec slack'
 exec i3-msg 'workspace 10 spotify; exec spotify'
 
 # Personal keybindings for function keys
-bindsym XF86AudioLowerVolume exec amixer -q set Master 1000- && amixer -q set Master unmute
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 1000+ && amixer -q set Master unmute
+#bindsym XF86AudioLowerVolume exec amixer -q set Master 1000- && amixer -q set Master unmute
+#bindsym XF86AudioRaiseVolume exec amixer -q set Master 1000+ && amixer -q set Master unmute
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -2% 
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +2% 
+
 bindsym XF86AudioMute exec $(amixer -q set Master toggle)
 bindsym XF86MonBrightnessDown  exec light -U 5
 bindsym XF86MonBrightnessUp exec light -A 5
