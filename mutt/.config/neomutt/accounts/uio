@@ -13,7 +13,7 @@ set record      = "~/mail/uio/Sent Items"
 set signature = "~/.config/neomutt/signs/signatureuio.txt"
 # Adresseboka til UiO
 set query_command = "perl ~/.config/neomutt/scripts/mutt-ldap.pl '%s'"
-bind editor "\t" complete-query
+bind editor "\ct" complete-query
 
 
 macro index ,c "<change-folder>+fastmail/Inbox<enter>" "change accounts"

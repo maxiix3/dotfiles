@@ -13,8 +13,9 @@ macro index S "<save-message>spam<enter>"  "mark message as spam"
 set display_filter      = '~/.config/neomutt/scripts/alias.sh'
 set alias_file          = '~/.config/neomutt/aliases'
 set sort_alias= alias
-set reverse_alias=yes
+#set reverse_alias=yes
 set query_command="goobook query %s"
+bind editor <\ct> complete-query
 
 # Automatic signature and from addr depending on mailinglists
 send-hook   .                  'set signature="~/.config/neomutt/signs/signaturegmail.txt"'
@@ -28,6 +29,7 @@ reply-hook  "svada-core"       'set signature="~/.config/neomutt/signs/sig_core"
 
 # Alias
 alias identity_1  Maximiliano Horta     <post@maxhorta.no> 
+
 
 # Adresseboka til UiO
 #set query_command = "perl ~/dotfiles/mutt/mutt-ldap.pl '%s'"
@@ -45,3 +47,5 @@ macro index ,u "\
     pipe_decode=\$my_old_pipe_decode \
   <enter>" \
   "Unsubscribe from any email with a List-Unsubscribe header"
+
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
