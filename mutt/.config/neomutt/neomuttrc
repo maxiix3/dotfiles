@@ -16,7 +16,7 @@ source ~/.config/neomutt/conf/hooks
   set mime_forward        = ask-no
   set mbox_type           = maildir
   set reply_to
-  set reverse_name
+#set reverse_name
   set sort=threads                        # just like gmail
   set sort_aux=last-date-received         # just like gmail
   set pager_format="%4C %Z %[!%b %e at %I:%M %p] %.20n %s%* -- (%P)"
